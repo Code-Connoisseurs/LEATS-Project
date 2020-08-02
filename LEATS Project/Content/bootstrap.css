@@ -55,10 +55,12 @@ html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
+
 }
 
 body {
   margin: 0;
+  background-color:red;
 }
 
 a:focus {
@@ -1081,6 +1083,7 @@ pre code {
 @media (min-width: 992px) {
   .container {
     max-width: 970px;
+    
   }
   .col-md-1,
   .col-md-2,
@@ -4079,6 +4082,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 @media (min-width: 768px) {
   .navbar-header {
     float: left;
+    color: red;
   }
 }
 
@@ -6814,3 +6818,5 @@ td.visible-print {
     display: none !important;
   }
 }
+
+
