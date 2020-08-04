@@ -1,4 +1,5 @@
 /*Slideshow code*/
+/*
 var slideIndex = 0;
 slideImages();
 
@@ -13,3 +14,7 @@ function slideImages() {
   x[slideIndex-1].style.display = "block";
   setTimeout(slideImages(), 5000); // Change image every 5 seconds
 }
+
+LOCKED!!!
+
+*/
