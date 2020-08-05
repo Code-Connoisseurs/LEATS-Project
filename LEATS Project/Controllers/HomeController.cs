@@ -26,5 +26,19 @@ namespace LEATS_Project.Controllers
 
             return View();
         }
+
+        public ActionResult StudentHome()
+        {
+            ViewBag.Message = "Student Home.";
+
+            return View();
+        }
+
+        public ActionResult TutorHome()
+        {
+            ViewBag.Message = "TutorHome";
+
+            return View();
+        }
     }
 }
