@@ -171,6 +171,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StudentHomeController.cs" />
+    <Compile Include="Controllers\TutorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -248,10 +249,10 @@
     <Content Include="Views\Home\TutorHome.cshtml" />
     <Content Include="Views\Home\FindTutor.cshtml" />
     <Content Include="Views\Home\BecomeTutor.cshtml" />
+    <Content Include="Views\Tutor\RegisterTutor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Tutor\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
