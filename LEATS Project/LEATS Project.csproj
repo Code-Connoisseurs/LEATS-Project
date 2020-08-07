@@ -246,6 +246,8 @@
     <Content Include="Views\StudentHome\StudentHome.cshtml" />
     <Content Include="Views\Home\StudentHome.cshtml" />
     <Content Include="Views\Home\TutorHome.cshtml" />
+    <Content Include="Views\Home\FindTutor.cshtml" />
+    <Content Include="Views\Home\BecomeTutor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -273,7 +275,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53721</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

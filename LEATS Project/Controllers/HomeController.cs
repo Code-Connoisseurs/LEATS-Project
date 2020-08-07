@@ -41,5 +41,18 @@ namespace LEATS_Project.Controllers
 
             return View();
         }
+
+        public ActionResult FindTutor()
+        {
+            ViewBag.Message = "Find your private Tutor";
+
+            return View();
+        }
+        public ActionResult BecomeTutor()
+        {
+            ViewBag.Message = "Tutor with the best";
+
+            return View();
+        }
     }
 }
