@@ -6,13 +6,14 @@ using System.Web.Mvc;
 
 namespace LEATS_Project.Controllers
 {
-    public class StudentHomeController : Controller
+    public class InternalController : Controller
     {
-        // GET: StudentHome
-        public ActionResult UserView()
+        // GET: Internal
+        public ActionResult Internal()
         {
             return View();
         }
 
+       
     }
 }

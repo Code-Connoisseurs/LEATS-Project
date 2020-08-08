@@ -48,10 +48,17 @@ namespace LEATS_Project.Controllers
 
             return View();
         }
+
         public ActionResult BecomeTutor()
         {
             ViewBag.Message = "Tutor with the best";
 
+            return View();
+        }
+
+        //For linking to layout
+        public ActionResult GoInside()
+        {
             return View();
         }
     }

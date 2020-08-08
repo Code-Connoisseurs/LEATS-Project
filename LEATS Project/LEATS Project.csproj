@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InternalController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StudentHomeController.cs" />
     <Compile Include="Controllers\TutorController.cs" />
@@ -184,6 +185,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\inside_styles.css" />
     <Content Include="Content\MyJavaScript.js" />
     <Content Include="Content\RightBarStyle.css" />
     <Content Include="Content\MainOrDontKnowStyle.css" />
@@ -196,6 +198,7 @@
     <Content Include="Images\3.jpg" />
     <Content Include="Images\books.jpg" />
     <Content Include="Images\khayeh.jpg" />
+    <Content Include="Images\tutor1.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -244,15 +247,19 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\StudentHome\StudentHome.cshtml" />
+    <Content Include="Views\UserHome\StudentHome.cshtml" />
     <Content Include="Views\Home\StudentHome.cshtml" />
     <Content Include="Views\Home\TutorHome.cshtml" />
     <Content Include="Views\Home\FindTutor.cshtml" />
     <Content Include="Views\Home\BecomeTutor.cshtml" />
     <Content Include="Views\Tutor\RegisterTutor.cshtml" />
+    <Content Include="Views\Shared\_InternalLayout.cshtml" />
+    <Content Include="Views\Home\GoInside.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\GoInside\" />
+    <Folder Include="Views\Internal\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
