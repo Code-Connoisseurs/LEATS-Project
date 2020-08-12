@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="230868ea8b8e4d1d95dcb02bf07c86e7" Name="Diagram1">
+        <EntityTypeShape EntityType="hon06Model.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hon06Model.Administrator" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="hon06Model.Appointment" Width="1.5" PointX="9.75" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="hon06Model.AspNetRole" Width="1.5" PointX="0.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="hon06Model.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="hon06Model.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="hon06Model.AspNetUser" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="hon06Model.Module" Width="1.5" PointX="7.5" PointY="32.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="hon06Model.ModuleRequest" Width="1.5" PointX="7.5" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="hon06Model.Payment" Width="1.5" PointX="12" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="hon06Model.Review" Width="1.5" PointX="12" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="hon06Model.Specialisation" Width="1.5" PointX="9.75" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="hon06Model.Student" Width="1.5" PointX="5.25" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="hon06Model.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hon06Model.Tutor" Width="1.5" PointX="7.5" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="hon06Model.TutorApplication" Width="1.5" PointX="7.5" PointY="28.625" IsExpanded="true" />
+        <AssociationConnector Association="hon06Model.FK_Admin_tbl_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="hon06Model.FK_Appointment_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="hon06Model.FK_Appointment_Tutor" ManuallyRouted="false" />
+        <AssociationConnector Association="hon06Model.FK_Payment_Appointment" ManuallyRouted="false" />
+        <AssociationConnector Association="hon06Model.FK_Review_Appointment" ManuallyRouted="false" />
+        <AssociationConnector Association="hon06Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="hon06Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="hon06Model.FK_Student_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="hon06Model.FK_Specialisation_Module" ManuallyRouted="false" />
+        <AssociationConnector Association="hon06Model.FK_ModuleRequest_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="hon06Model.FK_Specialisation_Tutor" ManuallyRouted="false" />
+        <AssociationConnector Association="hon06Model.FK_Tutor_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="hon06Model.FK_TutorApplication_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="hon06Model.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
