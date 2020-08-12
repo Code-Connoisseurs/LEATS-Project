@@ -15,10 +15,10 @@ namespace LEATS_Project.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class hon06Entities1 : DbContext
+    public partial class hon06Entities2 : DbContext
     {
-        public hon06Entities1()
-            : base("name=hon06Entities1")
+        public hon06Entities2()
+            : base("name=hon06Entities2")
         {
         }
     

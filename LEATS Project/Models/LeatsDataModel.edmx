@@ -188,9 +188,9 @@
           </Key>
           <Property Name="TutorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="StudentID" Type="int" Nullable="false" />
-          <Property Name="Experience" Type="nvarchar" MaxLength="20" />
+          <Property Name="Experience" Type="varchar" MaxLength="50" />
           <Property Name="Qualification" Type="varchar" MaxLength="50" />
-          <Property Name="Tut_StreetName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StreetName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="RatePerHour" Type="varchar" MaxLength="10" />
           <Property Name="Status" Type="varchar" MaxLength="20" />
           <Property Name="TotalRating" Type="int" Nullable="false" />
@@ -202,8 +202,8 @@
           </Key>
           <Property Name="ApplicationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="StudentID" Type="int" Nullable="false" />
-          <Property Name="ModuleCode" Type="nchar" MaxLength="10" />
-          <Property Name="ModuleName" Type="int" Nullable="false" />
+          <Property Name="ModuleCode" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="ModuleName" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="AcademicTranscript" Type="varbinary(max)" />
           <Property Name="ProofOfRegistration" Type="varbinary(max)" />
           <Property Name="ApplicationDate" Type="date" Nullable="false" />
@@ -715,9 +715,9 @@
           </Key>
           <Property Name="TutorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StudentID" Type="Int32" Nullable="false" />
-          <Property Name="Experience" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Experience" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Qualification" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Tut_StreetName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StreetName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="RatePerHour" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="TotalRating" Type="Int32" Nullable="false" />
@@ -732,8 +732,8 @@
           </Key>
           <Property Name="ApplicationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StudentID" Type="Int32" Nullable="false" />
-          <Property Name="ModuleCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="ModuleName" Type="Int32" Nullable="false" />
+          <Property Name="ModuleCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ModuleName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="AcademicTranscript" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="ProofOfRegistration" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="ApplicationDate" Type="DateTime" Nullable="false" Precision="0" />
@@ -904,7 +904,7 @@
           <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="hon06Entities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="hon06Entities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
           <EntitySet Name="Administrators" EntityType="Self.Administrator" />
           <EntitySet Name="Appointments" EntityType="Self.Appointment" />
@@ -1028,7 +1028,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="hon06ModelStoreContainer" CdmEntityContainer="hon06Entities1">
+        <EntityContainerMapping StorageEntityContainer="hon06ModelStoreContainer" CdmEntityContainer="hon06Entities2">
           <EntitySetMapping Name="C__MigrationHistory">
             <EntityTypeMapping TypeName="hon06Model.C__MigrationHistory">
               <MappingFragment StoreEntitySet="__MigrationHistory">
@@ -1216,7 +1216,7 @@
                 <ScalarProperty Name="StudentID" ColumnName="StudentID" />
                 <ScalarProperty Name="Experience" ColumnName="Experience" />
                 <ScalarProperty Name="Qualification" ColumnName="Qualification" />
-                <ScalarProperty Name="Tut_StreetName" ColumnName="Tut_StreetName" />
+                <ScalarProperty Name="StreetName" ColumnName="StreetName" />
                 <ScalarProperty Name="RatePerHour" ColumnName="RatePerHour" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="TotalRating" ColumnName="TotalRating" />

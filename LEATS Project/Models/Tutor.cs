@@ -25,7 +25,7 @@ namespace LEATS_Project.Models
         public int StudentID { get; set; }
         public string Experience { get; set; }
         public string Qualification { get; set; }
-        public string Tut_StreetName { get; set; }
+        public string StreetName { get; set; }
         public string RatePerHour { get; set; }
         public string Status { get; set; }
         public int TotalRating { get; set; }

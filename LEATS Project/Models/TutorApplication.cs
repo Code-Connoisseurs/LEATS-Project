@@ -17,7 +17,7 @@ namespace LEATS_Project.Models
         public int ApplicationID { get; set; }
         public int StudentID { get; set; }
         public string ModuleCode { get; set; }
-        public int ModuleName { get; set; }
+        public string ModuleName { get; set; }
         public byte[] AcademicTranscript { get; set; }
         public byte[] ProofOfRegistration { get; set; }
         public System.DateTime ApplicationDate { get; set; }
