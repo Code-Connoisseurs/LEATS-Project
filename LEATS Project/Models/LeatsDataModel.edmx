@@ -145,7 +145,7 @@
           <Key>
             <PropertyRef Name="SpecialisationID" />
           </Key>
-          <Property Name="SpecialisationID" Type="int" Nullable="false" />
+          <Property Name="SpecialisationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ModuleID" Type="int" Nullable="false" />
           <Property Name="TutorID" Type="int" Nullable="false" />
         </EntityType>
@@ -665,7 +665,7 @@
           <Key>
             <PropertyRef Name="SpecialisationID" />
           </Key>
-          <Property Name="SpecialisationID" Type="Int32" Nullable="false" />
+          <Property Name="SpecialisationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ModuleID" Type="Int32" Nullable="false" />
           <Property Name="TutorID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Module" Relationship="Self.FK_Specialisation_Module" FromRole="Specialisation" ToRole="Module" />
@@ -904,7 +904,7 @@
           <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="hon06Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="hon06Entities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
           <EntitySet Name="Administrators" EntityType="Self.Administrator" />
           <EntitySet Name="Appointments" EntityType="Self.Appointment" />
@@ -1028,7 +1028,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="hon06ModelStoreContainer" CdmEntityContainer="hon06Entities">
+        <EntityContainerMapping StorageEntityContainer="hon06ModelStoreContainer" CdmEntityContainer="hon06Entities1">
           <EntitySetMapping Name="C__MigrationHistory">
             <EntityTypeMapping TypeName="hon06Model.C__MigrationHistory">
               <MappingFragment StoreEntitySet="__MigrationHistory">
