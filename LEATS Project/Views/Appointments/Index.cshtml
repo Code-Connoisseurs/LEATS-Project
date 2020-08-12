@@ -1,0 +1,81 @@
+﻿@model IEnumerable<LEATS_Project.Models.Appointment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppointmentTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppointmentDuration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppointmentType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppointmentStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppointmentDetails)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tutor.Experience)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppointmentTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppointmentDuration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppointmentType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppointmentStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppointmentDetails)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tutor.Experience)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AppointmentID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AppointmentID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AppointmentID })
+        </td>
+    </tr>
+}
+
+</table>

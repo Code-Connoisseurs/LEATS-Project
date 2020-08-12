@@ -1,0 +1,96 @@
+﻿@model LEATS_Project.Models.Appointment
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Appointment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AppointmentTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppointmentTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AppointmentDuration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppointmentDuration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AppointmentType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppointmentType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AppointmentStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppointmentStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AppointmentDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppointmentDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tutor.Experience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tutor.Experience)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
