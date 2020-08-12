@@ -1,0 +1,82 @@
+﻿@model LEATS_Project.Models.Tutor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tutor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Experience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Experience)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Qualification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Qualification)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StreetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StreetName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RatePerHour)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RatePerHour)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalRating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoOfSessions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoOfSessions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.Id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TutorID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
