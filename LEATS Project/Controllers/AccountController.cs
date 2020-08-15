@@ -80,7 +80,9 @@ namespace LEATS_Project.Controllers
             {
                 case SignInStatus.Success:
                     //You go to modules display after login.....we need an LINQ query here to go to specific student profile
-                    return RedirectToAction("GoInside", "Home");
+                    //selects loging user id
+                    ViewBag.ActiveUser = "smunqa2@gmail.com";
+                    return RedirectToAction("Create", "Students");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
