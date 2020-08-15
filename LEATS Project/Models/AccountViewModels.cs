@@ -66,28 +66,6 @@ namespace LEATS_Project.Models
 
     public class RegisterViewModel
     {
-        /*edited for name, surname, cellno and address*/
-
-        [Required]
-        [Display(Name = "Firstname")]
-        public string Firstname { get; set; }
-
-        [Required]
-        [Display(Name = "Surname")]
-        public string Surname { get; set; }
-
-        [Required]
-        [Display(Name = "Cell Number")]
-        public string CellNo { get; set; }
-
-        [Required]
-        [Display(Name = "Present Address")]
-        public string PresentAddress { get; set; }
-
-        /*Permanent address may not be required*/
-        [Display(Name = "Permanent Address")]
-        public string PermanentAddress { get; set; }
-
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
