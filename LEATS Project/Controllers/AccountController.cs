@@ -17,9 +17,10 @@ namespace LEATS_Project.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+        private hon06Entities2 db = new hon06Entities2();
         public AccountController()
         {
+            ViewBag.ActiveUser = "";
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -81,8 +82,17 @@ namespace LEATS_Project.Controllers
                 case SignInStatus.Success:
                     //You go to modules display after login.....we need an LINQ query here to go to specific student profile
                     //selects loging user id
-                    ViewBag.ActiveUser = "smunqa2@gmail.com";
+
+                    var userId = from u in db.AspNetUsers
+                                 where u.Email == model.Email
+                                 select u.Id;
+                    String UserFinalID = "";
+                    foreach (string item in userId)
+                        UserFinalID = item;
+                    Session["ActiveUser"] = UserFinalID;
+                    Session["ActiveUserEmail"] = model.Email; 
                     return RedirectToAction("Create", "Students");
+                    
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
