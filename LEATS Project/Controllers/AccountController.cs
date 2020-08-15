@@ -86,6 +86,7 @@ namespace LEATS_Project.Controllers
                     var userId = from u in db.AspNetUsers
                                  where u.Email == model.Email
                                  select u.Id;
+                    //String UserFinalID2 = userId.ElementAt(1);
                     String UserFinalID = "";
                     foreach (string item in userId)
                         UserFinalID = item;
