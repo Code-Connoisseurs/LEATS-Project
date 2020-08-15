@@ -175,6 +175,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InternalController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ModuleApplicationsController.cs" />
     <Compile Include="Controllers\ModuleRequestsController.cs" />
     <Compile Include="Controllers\ModulesController.cs" />
     <Compile Include="Controllers\PaymentsController.cs" />
@@ -227,6 +228,9 @@
     </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Module.cs">
+      <DependentUpon>LeatsDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModuleApplication.cs">
       <DependentUpon>LeatsDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ModuleRequest.cs">
@@ -401,6 +405,11 @@
     <Content Include="Views\Specialisations\Details.cshtml" />
     <Content Include="Views\Specialisations\Edit.cshtml" />
     <Content Include="Views\Specialisations\Index.cshtml" />
+    <Content Include="Views\ModuleApplications\Create.cshtml" />
+    <Content Include="Views\ModuleApplications\Delete.cshtml" />
+    <Content Include="Views\ModuleApplications\Details.cshtml" />
+    <Content Include="Views\ModuleApplications\Edit.cshtml" />
+    <Content Include="Views\ModuleApplications\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

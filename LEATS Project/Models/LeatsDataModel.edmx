@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="hon06Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="hon06Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -108,6 +108,17 @@
           <Property Name="ModuleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ModuleCode" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Description" Type="varchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ModuleApplication">
+          <Key>
+            <PropertyRef Name="ModuleApplicationID" />
+          </Key>
+          <Property Name="ModuleApplicationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TutorID" Type="int" Nullable="false" />
+          <Property Name="ModuleCode" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="ModuleName" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="ModuleRequest">
           <Key>
@@ -301,6 +312,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ModuleApplication_Tutor">
+          <End Role="Tutor" Type="Self.Tutor" Multiplicity="1" />
+          <End Role="ModuleApplication" Type="Self.ModuleApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tutor">
+              <PropertyRef Name="TutorID" />
+            </Principal>
+            <Dependent Role="ModuleApplication">
+              <PropertyRef Name="TutorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ModuleRequest_Student">
           <End Role="Student" Type="Self.Student" Multiplicity="1" />
           <End Role="ModuleRequest" Type="Self.ModuleRequest" Multiplicity="*" />
@@ -442,6 +465,7 @@
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Module" EntityType="Self.Module" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ModuleApplication" EntityType="Self.ModuleApplication" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ModuleRequest" EntityType="Self.ModuleRequest" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Review" EntityType="Self.Review" Schema="dbo" store:Type="Tables" />
@@ -478,6 +502,10 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
+          <AssociationSet Name="FK_ModuleApplication_Tutor" Association="Self.FK_ModuleApplication_Tutor">
+            <End Role="Tutor" EntitySet="Tutor" />
+            <End Role="ModuleApplication" EntitySet="ModuleApplication" />
+          </AssociationSet>
           <AssociationSet Name="FK_ModuleRequest_Student" Association="Self.FK_ModuleRequest_Student">
             <End Role="Student" EntitySet="Student" />
             <End Role="ModuleRequest" EntitySet="ModuleRequest" />
@@ -511,8 +539,7 @@
             <End Role="TutorApplication" EntitySet="TutorApplication" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="hon06Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -725,6 +752,7 @@
           <NavigationProperty Name="Appointments" Relationship="Self.FK_Appointment_Tutor" FromRole="Tutor" ToRole="Appointment" />
           <NavigationProperty Name="Specialisations" Relationship="Self.FK_Specialisation_Tutor" FromRole="Tutor" ToRole="Specialisation" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Tutor_Student" FromRole="Tutor" ToRole="Student" />
+          <NavigationProperty Name="ModuleApplications" Relationship="hon06Model.FK_ModuleApplication_Tutor" FromRole="Tutor" ToRole="ModuleApplication" />
         </EntityType>
         <EntityType Name="TutorApplication">
           <Key>
@@ -1011,6 +1039,11 @@
             <Parameter Name="Username" Mode="In" Type="String" />
             <Parameter Name="Password" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="ModuleApplications" EntityType="hon06Model.ModuleApplication" />
+          <AssociationSet Name="FK_ModuleApplication_Tutor" Association="hon06Model.FK_ModuleApplication_Tutor">
+            <End Role="Tutor" EntitySet="Tutors" />
+            <End Role="ModuleApplication" EntitySet="ModuleApplications" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -1023,6 +1056,30 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="ModuleApplication">
+          <Key>
+            <PropertyRef Name="ModuleApplicationID" />
+          </Key>
+          <Property Name="ModuleApplicationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TutorID" Type="Int32" Nullable="false" />
+          <Property Name="ModuleCode" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ModuleName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tutor" Relationship="hon06Model.FK_ModuleApplication_Tutor" FromRole="ModuleApplication" ToRole="Tutor" />
+        </EntityType>
+        <Association Name="FK_ModuleApplication_Tutor">
+          <End Type="hon06Model.Tutor" Role="Tutor" Multiplicity="1" />
+          <End Type="hon06Model.ModuleApplication" Role="ModuleApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tutor">
+              <PropertyRef Name="TutorID" />
+            </Principal>
+            <Dependent Role="ModuleApplication">
+              <PropertyRef Name="TutorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1271,6 +1328,18 @@
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="hon06Model.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="hon06Model.Store.sp_upgraddiagrams" />
           <FunctionImportMapping FunctionImportName="Validate_User" FunctionName="hon06Model.Store.Validate_User" />
+          <EntitySetMapping Name="ModuleApplications">
+            <EntityTypeMapping TypeName="hon06Model.ModuleApplication">
+              <MappingFragment StoreEntitySet="ModuleApplication">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+                <ScalarProperty Name="ModuleCode" ColumnName="ModuleCode" />
+                <ScalarProperty Name="TutorID" ColumnName="TutorID" />
+                <ScalarProperty Name="ModuleApplicationID" ColumnName="ModuleApplicationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

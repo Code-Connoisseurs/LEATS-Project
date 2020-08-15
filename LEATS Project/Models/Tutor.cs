@@ -19,6 +19,7 @@ namespace LEATS_Project.Models
         {
             this.Appointments = new HashSet<Appointment>();
             this.Specialisations = new HashSet<Specialisation>();
+            this.ModuleApplications = new HashSet<ModuleApplication>();
         }
     
         public int TutorID { get; set; }
@@ -36,5 +37,7 @@ namespace LEATS_Project.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Specialisation> Specialisations { get; set; }
         public virtual Student Student { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ModuleApplication> ModuleApplications { get; set; }
     }
 }
