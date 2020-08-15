@@ -43,6 +43,7 @@ namespace LEATS_Project.Models
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Tutor> Tutors { get; set; }
         public virtual DbSet<TutorApplication> TutorApplications { get; set; }
+        public virtual DbSet<ModuleApplication> ModuleApplications { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
