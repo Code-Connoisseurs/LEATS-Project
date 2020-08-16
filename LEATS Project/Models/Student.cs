@@ -11,7 +11,8 @@ namespace LEATS_Project.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Student
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,23 +23,38 @@ namespace LEATS_Project.Models
             this.Tutors = new HashSet<Tutor>();
             this.TutorApplications = new HashSet<TutorApplication>();
         }
-    
-        public int StudentID { get; set; }
+
+        public int StudentID { get; set;  }
         public string Id { get; set; }
+        [Required]
         public string FirstName { get; set; }
+        [Required]
         public string LastName { get; set; }
+        [Required]
         public string Gender { get; set; }
+        [Required]
         public string Ethnicity { get; set; }
+        [Required]
         public System.DateTime DateOfBirth { get; set; }
+        [Required]
         public string CellphoneNo { get; set; }
+        [Required]
         public string Email { get; set; }
+        [Required]
         public string LevelOfStudy { get; set; }
+        [Required]
         public string Campus { get; set; }
+        [Required]
         public string College { get; set; }
+        [Required]
         public string StreetName { get; set; }
+        [Required]
         public string Suburb { get; set; }
+        [Required]
         public string City { get; set; }
+        [Required]
         public string Province { get; set; }
+        [Required]
         public int PostalCode { get; set; }
         public byte[] ProfilePicture { get; set; }
     
