@@ -15,6 +15,7 @@ namespace LEATS_Project.Controllers
         private hon06Entities2 db = new hon06Entities2();
 
         // GET: Modules
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.Modules.ToList());

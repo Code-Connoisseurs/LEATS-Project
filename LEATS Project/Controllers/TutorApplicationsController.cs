@@ -15,6 +15,7 @@ namespace LEATS_Project.Controllers
         private hon06Entities2 db = new hon06Entities2();
 
         // GET: TutorApplications
+        [Authorize]
         public ActionResult Index()
         {
             var tutorApplications = db.TutorApplications.Include(t => t.Student);
@@ -37,6 +38,7 @@ namespace LEATS_Project.Controllers
         }
 
         // GET: TutorApplications/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "Id");

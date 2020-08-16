@@ -15,7 +15,7 @@ namespace LEATS_Project.Controllers
         private hon06Entities2 db = new hon06Entities2();
 
         // GET: Administrators
-
+        [Authorize]
         public ActionResult Index()
         {
             var administrators = db.Administrators.Include(a => a.AspNetUser);
