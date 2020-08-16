@@ -23,6 +23,7 @@ namespace LEATS_Project.Models
             this.Tutors = new HashSet<Tutor>();
             this.TutorApplications = new HashSet<TutorApplication>();
         }
+        public List<String> GenderList{get; set;}//for gender 
 
         public int StudentID { get; set;  }
         public string Id { get; set; }
@@ -35,6 +36,7 @@ namespace LEATS_Project.Models
         [Required]
         public string Ethnicity { get; set; }
         [Required]
+        [DisplayFormat(DataFormatString = "(0:dd-MM-yyyy)")]
         public System.DateTime DateOfBirth { get; set; }
         [Required]
         public string CellphoneNo { get; set; }
@@ -67,5 +69,6 @@ namespace LEATS_Project.Models
         public virtual ICollection<Tutor> Tutors { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TutorApplication> TutorApplications { get; set; }
+
     }
 }
