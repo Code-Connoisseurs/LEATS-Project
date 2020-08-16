@@ -116,6 +116,11 @@ namespace LEATS_Project.Controllers
             return RedirectToAction("Index");
         }
 
+        //Section of module
+        public ActionResult Select(int? id)
+        {
+            return View();
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

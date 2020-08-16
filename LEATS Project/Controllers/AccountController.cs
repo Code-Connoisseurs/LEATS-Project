@@ -92,7 +92,7 @@ namespace LEATS_Project.Controllers
                         UserFinalID = item;
                     Session["ActiveUser"] = UserFinalID;
                     Session["ActiveUserEmail"] = model.Email; 
-                    return RedirectToAction("Index", "Modules");
+                    return RedirectToAction("Create", "Students");
                     
                 case SignInStatus.LockedOut:
                     return View("Lockout");

@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Search tutor by module</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <!--Html.ActionLink("Create New", "Create")-->
 </p>
 <table class="table">
     <tr>
@@ -29,9 +29,10 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ModuleID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ModuleID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ModuleID })
+            <!--Html.ActionLink("Edit", "Edit", new { id=item.ModuleID }) |
+            Html.ActionLink("Details", "Details", new { id=item.ModuleID }) |
+            Html.ActionLink("Delete", "Delete", new { id=item.ModuleID })-->
+
         </td>
     </tr>
 }
