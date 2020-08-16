@@ -56,12 +56,12 @@
         <th>
             @Html.DisplayNameFor(model => model.PostalCode)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.ProfilePicture)
-        </th>
-        <th>
+        </th>*@
+        @*<th>
             @Html.DisplayNameFor(model => model.AspNetUser.Email)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -112,12 +112,12 @@
         <td>
             @Html.DisplayFor(modelItem => item.PostalCode)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.ProfilePicture)
-        </td>
-        <td>
+        </td>*@
+        @*<td>
             @Html.DisplayFor(modelItem => item.AspNetUser.Email)
-        </td>
+        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.StudentID }) |
             @Html.ActionLink("Details", "Details", new { id=item.StudentID }) |
