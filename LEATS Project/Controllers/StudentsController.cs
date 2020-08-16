@@ -64,7 +64,7 @@ namespace LEATS_Project.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Id = new SelectList(db.AspNetUsers, "Id", "Email", student.Id);
+            ViewBag.Id = new SelectList(db.AspNetUsers, "Id", "Email", Session["ActiveUser"]);
             return View(student);
         }
 
@@ -80,7 +80,7 @@ namespace LEATS_Project.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Id = new SelectList(db.AspNetUsers, "Id", "Email", student.Id);
+            ViewBag.Id = new SelectList(db.AspNetUsers, "Id", "Email", Session["ActiveUser"]);
             return View(student);
         }
 
@@ -102,7 +102,7 @@ namespace LEATS_Project.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Id = new SelectList(db.AspNetUsers, "Id", "Email", student.Id);
+            ViewBag.Id = new SelectList(db.AspNetUsers, "Id", "Email", Session["ActiveUser"]);
             return View(student);
         }
 

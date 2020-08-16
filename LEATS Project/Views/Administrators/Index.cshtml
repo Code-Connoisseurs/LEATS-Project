@@ -47,12 +47,6 @@
         <th>
             @Html.DisplayNameFor(model => model.PostalCode)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProfilePicture)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AspNetUser.Email)
-        </th>
         <th></th>
     </tr>
 
@@ -94,12 +88,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.PostalCode)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProfilePicture)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
-        </td>
+
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.AdministratorID }) |
             @Html.ActionLink("Details", "Details", new { id=item.AdministratorID }) |

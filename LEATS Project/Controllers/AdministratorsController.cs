@@ -40,7 +40,7 @@ namespace LEATS_Project.Controllers
         // GET: Administrators/Create
         public ActionResult Create()
         {
-            ViewBag.Id = new SelectList(db.AspNetUsers, "Id", "Email");
+            ViewBag.Id = new SelectList(db.AspNetUsers, "Id", "Id", Session["ActiveUser"]);
             return View();
         }
 
@@ -49,16 +49,21 @@ namespace LEATS_Project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AdministratorID,Id,FirstName,LastName,Gender,Ethnicity,DateOfBirth,CellphoneNo,Email,StreetName,Suburb,City,Province,PostalCode,ProfilePicture")] Administrator administrator)
+        public ActionResult Create([Bind(Include = "AdministratorID,Id,FirstName,LastName,Gender,Ethnicity,DateOfBirth,CellphoneNo,Email,StreetName,Suburb,City,Province,PostalCode,ProfilePicture")] Administrator administrator, HttpPostedFileBase image1)
         {
             if (ModelState.IsValid)
             {
+                if (image1 != null)
+                {
+                    administrator.ProfilePicture = new byte[image1.ContentLength];
+                    image1.InputStream.Read(administrator.ProfilePicture, 0, image1.ContentLength);
+                }
                 db.Administrators.Add(administrator);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Id = new SelectList(db.AspNetUsers, "Id", "Email", administrator.Id);
+            ViewBag.Id = new SelectList(db.AspNetUsers, "Id", "Id", Session["ActiveUser"]);
             return View(administrator);
         }
 
@@ -74,7 +79,7 @@ namespace LEATS_Project.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Id = new SelectList(db.AspNetUsers, "Id", "Email", administrator.Id);
+            ViewBag.Id = new SelectList(db.AspNetUsers, "Id", "Id", administrator.Id);
             return View(administrator);
         }
 
@@ -83,10 +88,15 @@ namespace LEATS_Project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AdministratorID,Id,FirstName,LastName,Gender,Ethnicity,DateOfBirth,CellphoneNo,Email,StreetName,Suburb,City,Province,PostalCode,ProfilePicture")] Administrator administrator)
+        public ActionResult Edit([Bind(Include = "AdministratorID,Id,FirstName,LastName,Gender,Ethnicity,DateOfBirth,CellphoneNo,Email,StreetName,Suburb,City,Province,PostalCode,ProfilePicture")] Administrator administrator, HttpPostedFileBase image1)
         {
             if (ModelState.IsValid)
             {
+                if (image1 != null)
+                {
+                    administrator.ProfilePicture = new byte[image1.ContentLength];
+                    image1.InputStream.Read(administrator.ProfilePicture, 0, image1.ContentLength);
+                }
                 db.Entry(administrator).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

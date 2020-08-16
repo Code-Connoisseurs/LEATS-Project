@@ -6,7 +6,7 @@
 
 <h2>Please complete your profile</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm(Html.BeginForm("Create", "Students", FormMethod.Post, new { enctype = "multipart/form-data" }))) 
 {
     @Html.AntiForgeryToken()
     
