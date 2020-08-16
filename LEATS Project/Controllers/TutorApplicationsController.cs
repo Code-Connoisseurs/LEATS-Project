@@ -15,7 +15,7 @@ namespace LEATS_Project.Controllers
         private hon06Entities2 db = new hon06Entities2();
 
         // GET: TutorApplications
-        [Authorize(Roles ="admin")]
+        //[Authorize(Roles ="admin")]
         public ActionResult Index()
         {
             var tutorApplications = db.TutorApplications.Include(t => t.Student);
@@ -41,7 +41,7 @@ namespace LEATS_Project.Controllers
         [Authorize]
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "Id");
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "StudentID");
             return View();
         }
 
@@ -50,16 +50,25 @@ namespace LEATS_Project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ApplicationID,StudentID,ModuleCode,ModuleName,AcademicTranscript,ProofOfRegistration,ApplicationDate,ApplicationStatus")] TutorApplication tutorApplication)
+        public ActionResult Create([Bind(Include = "ApplicationID,StudentID,ModuleCode,ModuleName,AcademicTranscript,ProofOfRegistration,ApplicationDate,ApplicationStatus")] TutorApplication tutorApplication, HttpPostedFileBase academicTranscript, HttpPostedFileBase proofOfReg)
         {
             if (ModelState.IsValid)
             {
+                if (academicTranscript != null && proofOfReg != null)
+                {
+
+                    tutorApplication.AcademicTranscript = new byte[academicTranscript.ContentLength];
+                    academicTranscript.InputStream.Read(tutorApplication.AcademicTranscript, 0, academicTranscript.ContentLength);
+                    tutorApplication.ProofOfRegistration = new byte[proofOfReg.ContentLength];
+                    proofOfReg.InputStream.Read(tutorApplication.ProofOfRegistration, 0, proofOfReg.ContentLength);
+
+                }
                 db.TutorApplications.Add(tutorApplication);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "Id", tutorApplication.StudentID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "StudentID", tutorApplication.StudentID);
             return View(tutorApplication);
         }
 
@@ -75,7 +84,7 @@ namespace LEATS_Project.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "Id", tutorApplication.StudentID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "StudentID", tutorApplication.StudentID);
             return View(tutorApplication);
         }
 
@@ -92,7 +101,7 @@ namespace LEATS_Project.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "Id", tutorApplication.StudentID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "StudentID", tutorApplication.StudentID);
             return View(tutorApplication);
         }
 
