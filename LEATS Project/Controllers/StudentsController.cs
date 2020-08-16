@@ -37,6 +37,7 @@ namespace LEATS_Project.Controllers
         }
 
         // GET: Students/Create
+        
         public ActionResult Create()
         {
             ViewBag.Id = new SelectList(db.AspNetUsers, "Id", "Id", Session["ActiveUser"]);
@@ -49,10 +50,15 @@ namespace LEATS_Project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "StudentID,Id,FirstName,LastName,Gender,Ethnicity,DateOfBirth,CellphoneNo,Email,LevelOfStudy,Campus,College,StreetName,Suburb,City,Province,PostalCode,ProfilePicture")] Student student)
+        public ActionResult Create([Bind(Include = "StudentID,Id,FirstName,LastName,Gender,Ethnicity,DateOfBirth,CellphoneNo,Email,LevelOfStudy,Campus,College,StreetName,Suburb,City,Province,PostalCode,ProfilePicture")] Student student, HttpPostedFileBase image1)
         {
             if (ModelState.IsValid)
             {
+                if(image1 != null)
+                {
+                    student.ProfilePicture = new byte[image1.ContentLength];
+                    image1.InputStream.Read(student.ProfilePicture, 0, image1.ContentLength);
+                }
                 db.Students.Add(student);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -83,10 +89,15 @@ namespace LEATS_Project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "StudentID,Id,FirstName,LastName,Gender,Ethnicity,DateOfBirth,CellphoneNo,Email,LevelOfStudy,Campus,College,StreetName,Suburb,City,Province,PostalCode,ProfilePicture")] Student student)
+        public ActionResult Edit([Bind(Include = "StudentID,Id,FirstName,LastName,Gender,Ethnicity,DateOfBirth,CellphoneNo,Email,LevelOfStudy,Campus,College,StreetName,Suburb,City,Province,PostalCode,ProfilePicture")] Student student, HttpPostedFileBase image1)
         {
             if (ModelState.IsValid)
             {
+                if (image1 != null)
+                {
+                    student.ProfilePicture = new byte[image1.ContentLength];
+                    image1.InputStream.Read(student.ProfilePicture, 0, image1.ContentLength);
+                }
                 db.Entry(student).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
