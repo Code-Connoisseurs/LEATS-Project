@@ -39,7 +39,7 @@ namespace LEATS_Project.Controllers
         // GET: Students/Create
         public ActionResult Create()
         {
-            ViewBag.Id = new SelectList(db.AspNetUsers, "Id", "Email", Session["ActiveUser"]);
+            ViewBag.Id = new SelectList(db.AspNetUsers, "Id", "Id", Session["ActiveUser"]);
             
             return View();
         }
