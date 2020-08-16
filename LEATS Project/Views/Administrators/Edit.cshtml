@@ -43,7 +43,12 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.Gender, new List<SelectListItem>
+           {
+               new SelectListItem {Text = "select", Value = "1", Selected = true },
+               new SelectListItem {Text = "Male", Value = "2" },
+               new SelectListItem {Text = "Female", Value = "3" }
+           }, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -51,7 +56,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Ethnicity, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Ethnicity, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.Ethnicity, new List<SelectListItem>
+           {
+               new SelectListItem {Text = "select", Value = "1", Selected = true },
+               new SelectListItem {Text = "African", Value = "2" },
+               new SelectListItem {Text = "Indian", Value = "3" },
+               new SelectListItem {Text = "White", Value = "4" },
+               new SelectListItem {Text = "Coloured", Value = "5" }
+           }, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Ethnicity, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -75,7 +87,10 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.Email, new List<SelectListItem>
+           {
+               new SelectListItem {Text = Session["ActiveUserEmail"].ToString(), Value = "1", Selected = true },
+           }, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -107,7 +122,19 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Province, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Province, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.Province, new List<SelectListItem>
+           {
+               new SelectListItem {Text = "select", Value = "1", Selected = true },
+               new SelectListItem {Text = "Eastern Cape", Value = "2" },
+               new SelectListItem {Text = "Free State", Value = "3" },
+               new SelectListItem {Text = "Gauteng", Value = "4" },
+               new SelectListItem {Text = "KwaZulu-Natal", Value = "5" },
+               new SelectListItem {Text = "Limpopo", Value = "6" },
+               new SelectListItem {Text = "Mpumalanga", Value = "7" },
+               new SelectListItem {Text = "North West", Value = "8" },
+               new SelectListItem {Text = "Northern Cape", Value = "9" },
+               new SelectListItem {Text = "Western Cape", Value = "20" },
+           }, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Province, "", new { @class = "text-danger" })
             </div>
         </div>
