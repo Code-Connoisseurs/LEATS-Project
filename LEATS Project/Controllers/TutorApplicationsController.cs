@@ -56,7 +56,7 @@ namespace LEATS_Project.Controllers
             {
                 db.TutorApplications.Add(tutorApplication);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
 
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "Id", tutorApplication.StudentID);

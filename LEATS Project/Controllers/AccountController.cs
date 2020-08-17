@@ -91,9 +91,21 @@ namespace LEATS_Project.Controllers
                     foreach (string item in userId)
                         UserFinalID = item;
                     Session["ActiveUser"] = UserFinalID;
-                    Session["ActiveUserEmail"] = model.Email; 
-                    return RedirectToAction("Create", "Students");
-                    
+                    Session["ActiveUserEmail"] = model.Email;
+                    var log = from u in db.Students
+                                 where u.Email == model.Email
+                                 select u.LastName;
+                    String StuLastName = "";
+                    foreach (string i in log)
+                        StuLastName = i;
+                    if (StuLastName == "")
+                    {
+                        return RedirectToAction("Create", "Students");
+                    }else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
