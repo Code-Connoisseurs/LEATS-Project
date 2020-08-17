@@ -50,17 +50,18 @@ namespace LEATS_Project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ApplicationID,StudentID,ModuleCode,ModuleName,AcademicTranscript,ProofOfRegistration,ApplicationDate,ApplicationStatus")] TutorApplication tutorApplication, HttpPostedFileBase academicTranscript, HttpPostedFileBase proofOfReg)
+        public ActionResult Create([Bind(Include = "ApplicationID,StudentID,ModuleCode,ModuleName,AcademicTranscript,ProofOfRegistration,ApplicationDate,ApplicationStatus")] TutorApplication tutorApplication, HttpPostedFileBase acad, HttpPostedFileBase proof)
         {
             if (ModelState.IsValid)
             {
-                if (academicTranscript != null && proofOfReg != null)
+                if (acad != null && proof != null)
                 {
 
-                    tutorApplication.AcademicTranscript = new byte[academicTranscript.ContentLength];
-                    academicTranscript.InputStream.Read(tutorApplication.AcademicTranscript, 0, academicTranscript.ContentLength);
-                    tutorApplication.ProofOfRegistration = new byte[proofOfReg.ContentLength];
-                    proofOfReg.InputStream.Read(tutorApplication.ProofOfRegistration, 0, proofOfReg.ContentLength);
+                    tutorApplication.AcademicTranscript = new byte[acad.ContentLength];
+                    acad.InputStream.Read(tutorApplication.AcademicTranscript, 0, acad.ContentLength);
+
+                    tutorApplication.ProofOfRegistration = new byte[proof.ContentLength];
+                    proof.InputStream.Read(tutorApplication.ProofOfRegistration, 0, proof.ContentLength);
 
                 }
                 db.TutorApplications.Add(tutorApplication);
@@ -93,10 +94,20 @@ namespace LEATS_Project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ApplicationID,StudentID,ModuleCode,ModuleName,AcademicTranscript,ProofOfRegistration,ApplicationDate,ApplicationStatus")] TutorApplication tutorApplication)
+        public ActionResult Edit([Bind(Include = "ApplicationID,StudentID,ModuleCode,ModuleName,AcademicTranscript,ProofOfRegistration,ApplicationDate,ApplicationStatus")] TutorApplication tutorApplication, HttpPostedFileBase acad, HttpPostedFileBase proof)
         {
             if (ModelState.IsValid)
             {
+                if (acad != null && proof != null)
+                {
+
+                    tutorApplication.AcademicTranscript = new byte[acad.ContentLength];
+                    acad.InputStream.Read(tutorApplication.AcademicTranscript, 0, acad.ContentLength);
+
+                    tutorApplication.ProofOfRegistration = new byte[proof.ContentLength];
+                    proof.InputStream.Read(tutorApplication.ProofOfRegistration, 0, proof.ContentLength);
+
+                }
                 db.Entry(tutorApplication).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
