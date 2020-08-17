@@ -10,7 +10,7 @@
         <EntityTypeShape EntityType="hon06Model.Appointment" Width="1.5" PointX="9.75" PointY="20.875" IsExpanded="true" />
         <EntityTypeShape EntityType="hon06Model.AspNetRole" Width="1.5" PointX="0.75" PointY="14.375" IsExpanded="true" />
         <EntityTypeShape EntityType="hon06Model.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="hon06Model.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="hon06Model.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="14.25" IsExpanded="true" />
         <EntityTypeShape EntityType="hon06Model.AspNetUser" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
         <EntityTypeShape EntityType="hon06Model.Module" Width="1.5" PointX="7.5" PointY="32.25" IsExpanded="true" />
         <EntityTypeShape EntityType="hon06Model.ModuleRequest" Width="1.5" PointX="7.5" PointY="21.625" IsExpanded="true" />

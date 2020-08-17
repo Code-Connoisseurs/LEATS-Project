@@ -4,11 +4,22 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Search tutor by module</h2>
+<br />
+<br />
+<h4>Search tutor by module</h4>
 
 <p>
     <!--Html.ActionLink("Create New", "Create")-->
 </p>
+<br />
+<br />
+<br />
+<br />
+@using (Html.BeginForm("Index", "Modules", FormMethod.Get))
+{
+    @Html.TextBox("searchBox")<input type="submit" value="Search" />
+}
+<br />
 <table class="table">
     <tr>
         <th>
@@ -19,22 +30,28 @@
         </th>
         <th></th>
     </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModuleCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <!--Html.ActionLink("Edit", "Edit", new { id=item.ModuleID }) |
+                Html.ActionLink("Details", "Details", new { id=item.ModuleID }) |
+                Html.ActionLink("Delete", "Delete", new { id=item.ModuleID })-->
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModuleCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            <!--Html.ActionLink("Edit", "Edit", new { id=item.ModuleID }) |
-            Html.ActionLink("Details", "Details", new { id=item.ModuleID }) |
-            Html.ActionLink("Delete", "Delete", new { id=item.ModuleID })-->
+            </td>
+        </tr>
+    }
 
-        </td>
-    </tr>
-}
+
+
+
 
 </table>
+<br />
+<br />
