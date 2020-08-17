@@ -9,6 +9,22 @@
 <div>
     <h4>TutorApplication</h4>
     <hr />
+    <div>
+        <table>
+            <tr>
+                <td>
+                    @{
+                        var base64 = Convert.ToBase64String(Model.Student.ProfilePicture);
+                        var imgsrc = string.Format("data:image/gif;base64,{0}", base64);
+
+                    }
+                    <img src="@imgsrc" style="max-width:200px;max-height:200px" />
+                </td>
+
+            </tr>
+        </table>
+
+    </div>
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.ModuleCode)
@@ -26,21 +42,8 @@
             @Html.DisplayFor(model => model.ModuleName)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AcademicTranscript)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.AcademicTranscript)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ProofOfRegistration)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProofOfRegistration)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.ApplicationDate)
@@ -59,11 +62,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Student.Id)
+            @Html.DisplayNameFor(model => model.Student.FirstName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Student.Id)
+            @Html.DisplayFor(model => model.Student.FirstName)
         </dd>
 
     </dl>
