@@ -16,9 +16,10 @@ namespace LEATS_Project.Controllers
 
         // GET: Modules
         [Authorize]
-        public ActionResult Index()
+        public ActionResult Index(string searchBox)
         {
-            return View(db.Modules.ToList());
+
+            return View(db.Modules.Where(model => model.ModuleCode.Contains(searchBox) || searchBox == null).ToList());
         }
 
         // GET: Modules/Details/5

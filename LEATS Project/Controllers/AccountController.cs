@@ -86,14 +86,34 @@ namespace LEATS_Project.Controllers
                     var userId = from u in db.AspNetUsers
                                  where u.Email == model.Email
                                  select u.Id;
-                    //String UserFinalID2 = userId.ElementAt(1);
                     String UserFinalID = "";
                     foreach (string item in userId)
                         UserFinalID = item;
                     Session["ActiveUser"] = UserFinalID;
-                    Session["ActiveUserEmail"] = model.Email; 
-                    return RedirectToAction("Create", "Students");
-                    
+                    Session["ActiveUserEmail"] = model.Email;
+                    //For retrieving student 
+                    var studentIdSelector = from s in db.Students
+                                 where s.Email == model.Email
+                                 select s.Id;
+                    String studentID = "";
+                    foreach (string i in studentIdSelector)
+                        studentID = i;
+                    Session["ActiveStudentID"] = studentID;
+                    //For Redirecting to relevant page during login
+                    var log = from u in db.Students
+                                 where u.Email == model.Email
+                                 select u.LastName;
+                    String StuLastName = "";
+                    foreach (string i in log)
+                        StuLastName = i;
+                    if (StuLastName == "")
+                    {
+                        return RedirectToAction("Create", "Students");
+                    }else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:

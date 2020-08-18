@@ -15,7 +15,7 @@ namespace LEATS_Project.Controllers
         private hon06Entities2 db = new hon06Entities2();
 
         // GET: TutorApplications
-        //[Authorize(Roles ="admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             var tutorApplications = db.TutorApplications.Include(t => t.Student);
@@ -37,6 +37,13 @@ namespace LEATS_Project.Controllers
 
             return View(tutorApplication);
         }
+        //public FileResult DownloadFile0(int? id)
+        //{
+
+        //    //tblFile file = entities.tblFiles.ToList().Find(p => p.id == fileId.Value);
+        //    TutorApplication tutorApplication = db.TutorApplications.Find(id);
+        //    return File(tutorApplication.AcademicTranscript,"pdf", "Academic Trascript");
+        //}
 
         // GET: TutorApplications/Create
         [Authorize]
@@ -67,7 +74,7 @@ namespace LEATS_Project.Controllers
                 }
                 db.TutorApplications.Add(tutorApplication);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
 
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "StudentID", tutorApplication.StudentID);
@@ -151,5 +158,6 @@ namespace LEATS_Project.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }
