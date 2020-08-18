@@ -41,14 +41,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.AcademicTranscript, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input type="file" id="acad" name="acad" />
+                <input type="file" id="acad" name="acad" required/>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.ProofOfRegistration, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input type="file" id="proof" name="proof" />
+                <input type="file" id="proof" name="proof" required/>
             </div>
         </div>
 
