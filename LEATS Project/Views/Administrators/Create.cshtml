@@ -43,9 +43,9 @@
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.Gender, new List<SelectListItem>
            {
-               new SelectListItem {Text = "select", Value = "1", Selected = true },
-               new SelectListItem {Text = "Male", Value = "2" },
-               new SelectListItem {Text = "Female", Value = "3" }
+               new SelectListItem {Text = "select", Value = "", Selected = true },
+               new SelectListItem {Text = "Male", Value = "Male" },
+               new SelectListItem {Text = "Female", Value = "Female" }
            }, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
             </div>
@@ -56,11 +56,11 @@
             <div class="col-md-10">
                @Html.DropDownListFor(model => model.Ethnicity, new List<SelectListItem>
            {
-               new SelectListItem {Text = "select", Value = "1", Selected = true },
-               new SelectListItem {Text = "African", Value = "2" },
-               new SelectListItem {Text = "Indian", Value = "3" },
-               new SelectListItem {Text = "White", Value = "4" },
-               new SelectListItem {Text = "Coloured", Value = "5" }
+               new SelectListItem {Text = "select", Value = "", Selected = true },
+               new SelectListItem {Text = "African", Value = "African" },
+               new SelectListItem {Text = "Indian", Value = "Indian" },
+               new SelectListItem {Text = "White", Value = "White" },
+               new SelectListItem {Text = "Coloured", Value = "Coloured" }
            }, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Ethnicity, "", new { @class = "text-danger" })
             </div>
@@ -87,7 +87,7 @@
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.Email, new List<SelectListItem>
            {
-               new SelectListItem {Text = Session["ActiveUserEmail"].ToString(), Value = "1", Selected = true },
+               new SelectListItem {Text = Session["ActiveUserEmail"].ToString(), Selected = true },
            }, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
@@ -122,16 +122,16 @@
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.Province, new List<SelectListItem>
            {
-               new SelectListItem {Text = "select", Value = "1", Selected = true },
-               new SelectListItem {Text = "Eastern Cape", Value = "2" },
-               new SelectListItem {Text = "Free State", Value = "3" },
-               new SelectListItem {Text = "Gauteng", Value = "4" },
-               new SelectListItem {Text = "KwaZulu-Natal", Value = "5" },
-               new SelectListItem {Text = "Limpopo", Value = "6" },
-               new SelectListItem {Text = "Mpumalanga", Value = "7" },
-               new SelectListItem {Text = "North West", Value = "8" },
-               new SelectListItem {Text = "Northern Cape", Value = "9" },
-               new SelectListItem {Text = "Western Cape", Value = "20" },
+               new SelectListItem {Text = "select", Value = "", Selected = true },
+               new SelectListItem {Text = "Eastern Cape", Value = "Eastern Cape" },
+               new SelectListItem {Text = "Free State", Value = "Free State" },
+               new SelectListItem {Text = "Gauteng", Value = "Gauteng" },
+               new SelectListItem {Text = "KwaZulu-Natal", Value = "KwaZulu-Natal" },
+               new SelectListItem {Text = "Limpopo", Value = "Limpopo" },
+               new SelectListItem {Text = "Mpumalanga", Value = "Mpumalanga" },
+               new SelectListItem {Text = "North West", Value = "North West" },
+               new SelectListItem {Text = "Northern Cape", Value = "Northern Cape" },
+               new SelectListItem {Text = "Western Cape", Value = "Western Cape" },
            }, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Province, "", new { @class = "text-danger" })
             </div>

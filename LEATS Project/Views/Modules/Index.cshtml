@@ -40,8 +40,8 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
+                @Html.ActionLink("Select Tutor", "Details","Specialisations", new { id = item.ModuleID });
                 <!--Html.ActionLink("Edit", "Edit", new { id=item.ModuleID }) |
-                Html.ActionLink("Details", "Details", new { id=item.ModuleID }) |
                 Html.ActionLink("Delete", "Delete", new { id=item.ModuleID })-->
 
             </td>

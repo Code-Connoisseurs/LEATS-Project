@@ -352,7 +352,6 @@
     <Content Include="Views\Home\TutorHome.cshtml" />
     <Content Include="Views\Home\FindTutor.cshtml" />
     <Content Include="Views\Home\BecomeTutor.cshtml" />
-    <Content Include="Views\Tutor\RegisterTutor.cshtml" />
     <Content Include="Views\Shared\_InternalLayout.cshtml" />
     <Content Include="Views\Home\GoInside.cshtml" />
     <Content Include="Views\Administrators\Create.cshtml" />

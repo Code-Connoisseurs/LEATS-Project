@@ -15,7 +15,7 @@ namespace LEATS_Project.Controllers
         private hon06Entities2 db = new hon06Entities2();
 
         // GET: TutorApplications
-        //[Authorize(Roles ="admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             var tutorApplications = db.TutorApplications.Include(t => t.Student);
