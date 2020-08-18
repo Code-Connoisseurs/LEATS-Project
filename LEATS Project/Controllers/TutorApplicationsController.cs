@@ -36,6 +36,13 @@ namespace LEATS_Project.Controllers
             }
             return View(tutorApplication);
         }
+        //public FileResult DownloadFile0(int? id)
+        //{
+
+        //    //tblFile file = entities.tblFiles.ToList().Find(p => p.id == fileId.Value);
+        //    TutorApplication tutorApplication = db.TutorApplications.Find(id);
+        //    return File(tutorApplication.AcademicTranscript,"pdf", "Academic Trascript");
+        //}
 
         // GET: TutorApplications/Create
         [Authorize]
@@ -150,5 +157,6 @@ namespace LEATS_Project.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }
