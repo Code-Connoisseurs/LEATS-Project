@@ -34,6 +34,7 @@ namespace LEATS_Project.Controllers
             {
                 return HttpNotFound();
             }
+
             return View(tutorApplication);
         }
 
