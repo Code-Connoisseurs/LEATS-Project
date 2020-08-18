@@ -38,13 +38,22 @@ namespace LEATS_Project.Controllers
             return View(tutorApplication);
         }
         [HttpGet]
-        public FileResult DownloadFile(int? id)
+        public FileResult DownloadFileAcademicTrans(int? id)
         {
 
-            //tblFile file = entities.tblFiles.ToList().Find(p => p.id == fileId.Value);
-            TutorApplication tutorApplication = db.TutorApplications.Find(id);
             
-            return File(tutorApplication.AcademicTranscript, "application/pdf", "Academic Trascript");
+            TutorApplication tutorApplication = db.TutorApplications.Find(id);
+            string fileName = tutorApplication.Student.FirstName + tutorApplication.Student.LastName;
+            return File(tutorApplication.AcademicTranscript, "application/pdf", fileName+"Academic Trascript.pdf");
+        }
+        [HttpGet]
+        public FileResult DownloadFileProofofReg(int? id)
+        {
+
+
+            TutorApplication tutorApplication = db.TutorApplications.Find(id);
+            string fileName = tutorApplication.Student.FirstName + tutorApplication.Student.LastName;
+            return File(tutorApplication.ProofOfRegistration, "application/pdf", fileName + "Proof of Registration.pdf");
         }
 
         // GET: TutorApplications/Create

@@ -29,15 +29,15 @@
         <table>
             <tr>
                 <td>
-                    Download Documents
+                    Application Documents
                     <div>
                         <p>
-                            @Html.ActionLink("Download", "DownloadFile", new { id = Model.ApplicationID})
-                            @*Academic Transcript <a href="http://go.microsoft.com/fwlink/?LinkId=403804">Download File</a>*@ 
+                            @Html.ActionLink("Download Academic Transcript", "DownloadFileAcademicTrans", new { id = Model.ApplicationID})
                         </p>
 
                         <p>
-                            Proof of Registration <a href="http://go.microsoft.com/fwlink/?LinkId=403804">Download File</a>
+                            @Html.ActionLink("Download Proof of Registration", "DownloadFileProofofReg", new { id = Model.ApplicationID })
+                            
                         </p>
 
                     </div>
