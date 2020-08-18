@@ -37,13 +37,15 @@ namespace LEATS_Project.Controllers
 
             return View(tutorApplication);
         }
-        //public FileResult DownloadFile0(int? id)
-        //{
+        [HttpGet]
+        public FileResult DownloadFile(int? id)
+        {
 
-        //    //tblFile file = entities.tblFiles.ToList().Find(p => p.id == fileId.Value);
-        //    TutorApplication tutorApplication = db.TutorApplications.Find(id);
-        //    return File(tutorApplication.AcademicTranscript,"pdf", "Academic Trascript");
-        //}
+            //tblFile file = entities.tblFiles.ToList().Find(p => p.id == fileId.Value);
+            TutorApplication tutorApplication = db.TutorApplications.Find(id);
+            
+            return File(tutorApplication.AcademicTranscript, "application/pdf", "Academic Trascript");
+        }
 
         // GET: TutorApplications/Create
         [Authorize]
