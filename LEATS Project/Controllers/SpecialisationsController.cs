@@ -24,7 +24,7 @@ namespace LEATS_Project.Controllers
         // GET: Specialisations/Details/5
         public ActionResult Details(int? id)
         {
-            /*if (id == null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -34,8 +34,7 @@ namespace LEATS_Project.Controllers
                 return HttpNotFound();
             }
             return View(specialisation);
-            */
-            //Object of selected attributes of students
+            /*/Object of selected attributes of students
             var tutorObject = from t in db.Students
                               select new {t.StudentID, t.FirstName, t.LastName, t.Gender, t.Ethnicity, t.CellphoneNo, t.Email, t.LevelOfStudy, t.Campus, t.College, t.Province, t.City, t.Suburb, t.StreetName, t.PostalCode, t.ProfilePicture };
 
@@ -49,8 +48,8 @@ namespace LEATS_Project.Controllers
             //Contains modules id's
             /*var moduleIds = from md in moduleObject
                             where md.ModuleID.Equals("")
-                            select st;*/
-            return View(studentIds);
+                            select st;
+            return View(studentIds);*/
         }
 
         // GET: Specialisations/Create

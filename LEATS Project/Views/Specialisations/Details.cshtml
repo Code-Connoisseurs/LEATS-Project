@@ -1,5 +1,4 @@
 ﻿@model LEATS_Project.Models.Specialisation
-
 @{
     ViewBag.Title = "Details";
 }
@@ -11,19 +10,21 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Module.ModuleCode)
-        </dt>
+            @Html.DisplayNameFor(model => model.Module.ModuleID)
+        </dt>-
 
         <dd>
-            @Html.DisplayFor(model => model.Module.ModuleCode)
+            @Html.DisplayFor(model => model.Module.ModuleID)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Tutor.Experience)
+            @Html.DisplayNameFor(model => model.Tutor.TutorID)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Tutor.Experience)
+            @Html.DisplayFor(model => model.Tutor.TutorID)
+            @Html.DisplayFor(model => model.Tutor.Student.FirstName)
+
         </dd>
 
     </dl>
