@@ -37,6 +37,7 @@
         <AssociationConnector Association="hon06Model.AspNetUserRoles" ManuallyRouted="false" />
         <EntityTypeShape EntityType="hon06Model.ModuleApplication" Width="1.5" PointX="9.75" PointY="29.125" />
         <AssociationConnector Association="hon06Model.FK_ModuleApplication_Tutor" />
+        <AssociationConnector Association="hon06Model.FK_Appointment_Student1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

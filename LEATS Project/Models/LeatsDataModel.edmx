@@ -150,7 +150,7 @@
           <Property Name="AppointmentID" Type="int" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="Comment" Type="varchar" MaxLength="300" />
-          <Property Name="Rating" Type="int" Nullable="false" />
+          <Property Name="Rating" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="Specialisation">
           <Key>
@@ -579,7 +579,7 @@
             <PropertyRef Name="AppointmentID" />
           </Key>
           <Property Name="AppointmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="StudentD" Type="Int32" Nullable="false" />
+          <Property Name="StudentD" Nullable="false" Type="Int32" />
           <Property Name="TutorID" Type="Int32" Nullable="false" />
           <Property Name="RequestTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="AppointmentTime" Type="DateTime" Nullable="false" Precision="3" />
@@ -592,6 +592,7 @@
           <NavigationProperty Name="Tutor" Relationship="Self.FK_Appointment_Tutor" FromRole="Appointment" ToRole="Tutor" />
           <NavigationProperty Name="Payments" Relationship="Self.FK_Payment_Appointment" FromRole="Appointment" ToRole="Payment" />
           <NavigationProperty Name="Reviews" Relationship="Self.FK_Review_Appointment" FromRole="Appointment" ToRole="Review" />
+          <NavigationProperty Name="Student1" Relationship="hon06Model.FK_Appointment_Student1" FromRole="Appointment" ToRole="Student" />
         </EntityType>
         <EntityType Name="AspNetRole">
           <Key>
@@ -685,7 +686,7 @@
           <Property Name="AppointmentID" Type="Int32" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Comment" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="Rating" Type="Int32" Nullable="false" />
+          <Property Name="Rating" Type="Double" Nullable="false" />
           <NavigationProperty Name="Appointment" Relationship="Self.FK_Review_Appointment" FromRole="Review" ToRole="Appointment" />
         </EntityType>
         <EntityType Name="Specialisation">
@@ -725,6 +726,7 @@
           <NavigationProperty Name="ModuleRequests" Relationship="Self.FK_ModuleRequest_Student" FromRole="Student" ToRole="ModuleRequest" />
           <NavigationProperty Name="Tutors" Relationship="Self.FK_Tutor_Student" FromRole="Student" ToRole="Tutor" />
           <NavigationProperty Name="TutorApplications" Relationship="Self.FK_TutorApplication_Student" FromRole="Student" ToRole="TutorApplication" />
+          <NavigationProperty Name="Appointments1" Relationship="hon06Model.FK_Appointment_Student1" FromRole="Student" ToRole="Appointment" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -1006,43 +1008,47 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
           <FunctionImport Name="sp_alterdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
+          <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
             <Parameter Name="version" Mode="In" Type="Int32" />
             <Parameter Name="definition" Mode="In" Type="Binary" />
           </FunctionImport>
           <FunctionImport Name="sp_creatediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
+          <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
             <Parameter Name="version" Mode="In" Type="Int32" />
             <Parameter Name="definition" Mode="In" Type="Binary" />
           </FunctionImport>
           <FunctionImport Name="sp_dropdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
+          <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(hon06Model.sp_helpdiagramdefinition_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
+          <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(hon06Model.sp_helpdiagrams_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
+          <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_renamediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
+          <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
           <FunctionImport Name="Validate_User">
-            <Parameter Name="Username" Mode="In" Type="String" />
+          <Parameter Name="Username" Mode="In" Type="String" />
             <Parameter Name="Password" Mode="In" Type="String" />
           </FunctionImport>
           <EntitySet Name="ModuleApplications" EntityType="hon06Model.ModuleApplication" />
           <AssociationSet Name="FK_ModuleApplication_Tutor" Association="hon06Model.FK_ModuleApplication_Tutor">
             <End Role="Tutor" EntitySet="Tutors" />
             <End Role="ModuleApplication" EntitySet="ModuleApplications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Student1" Association="hon06Model.FK_Appointment_Student1">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Appointment" EntitySet="Appointments" />
           </AssociationSet>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -1077,6 +1083,18 @@
             </Principal>
             <Dependent Role="ModuleApplication">
               <PropertyRef Name="TutorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_Student1">
+          <End Type="hon06Model.Student" Role="Student" Multiplicity="1" />
+          <End Type="hon06Model.Appointment" Role="Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="StudentD" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
