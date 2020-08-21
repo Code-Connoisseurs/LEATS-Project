@@ -54,14 +54,15 @@ namespace LEATS_Project.Controllers
             if (ModelState.IsValid)
             {
                 db.Appointments.Add(appointment);
-                try
+                /*try
                 {
                     db.SaveChanges();
                 }catch(Exception)
                 {
 
-                }
-               
+                }*/
+                db.SaveChanges();
+
                 return RedirectToAction("Details");
             }
 

@@ -11,7 +11,8 @@ namespace LEATS_Project.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Appointment
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -25,11 +26,17 @@ namespace LEATS_Project.Models
         public int StudentD { get; set; }
         public int TutorID { get; set; }
         public System.DateTime RequestTime { get; set; }
+        [Required]
         public string AppointmentTime { get; set; }
+        [Required]
         public int AppointmentDuration { get; set; }
+        [Required]
         public string AppointmentType { get; set; }
+        [Required]
         public string AppointmentStatus { get; set; }
+        [Required]
         public string AppointmentDetails { get; set; }
+        [Required]
         public string Location { get; set; }
     
         public virtual Student Student { get; set; }

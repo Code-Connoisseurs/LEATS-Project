@@ -79,9 +79,9 @@
         <div class="form-group">
             @Html.LabelFor(model => model.AppointmentStatus, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.AppointmentType, new List<SelectListItem>
+                @Html.DropDownListFor(model => model.AppointmentStatus, new List<SelectListItem>
            {
-               new SelectListItem {Text = "Pending", Value = "", Selected = true },
+               new SelectListItem {Text = "Pending", Value = "Pending", Selected = true },
            }, htmlAttributes: new {@class = "form-control" })
                 @Html.ValidationMessageFor(model => model.AppointmentStatus, "", new { @class = "text-danger" })
             </div>
