@@ -39,6 +39,8 @@ namespace LEATS_Project.Controllers
             {
                 return HttpNotFound();
             }
+
+            
             return View(specialisation);
             /*/Object of selected attributes of students
             var tutorObject = from t in db.Students

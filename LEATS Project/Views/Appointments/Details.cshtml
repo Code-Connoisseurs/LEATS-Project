@@ -3,11 +3,11 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
+<br />
+<br />
+<h2>Appoints Details</h2>
 
 <div>
-    <h4>Appointment</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -65,26 +65,13 @@
         <dd>
             @Html.DisplayFor(model => model.Location)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.Student.Id)
+            @Html.DisplayNameFor(model => model.Tutor.Student.FirstName)
+            @Html.DisplayNameFor(model => model.Tutor.Student.LastName)
         </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Student.Id)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Tutor.Experience)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tutor.Experience)
-        </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.AppointmentID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit appointment details", "Edit", new { id = Model.AppointmentID }) |
+    @Html.ActionLink("Close appointment details", "Index","Home")
 </p>

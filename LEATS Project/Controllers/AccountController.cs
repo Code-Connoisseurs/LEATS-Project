@@ -94,9 +94,9 @@ namespace LEATS_Project.Controllers
                     //For retrieving student 
                     var studentIdSelector = from s in db.Students
                                  where s.Email == model.Email
-                                 select s.Id;
-                    String studentID = "";
-                    foreach (string i in studentIdSelector)
+                                 select s.StudentID;
+                    int studentID = 0;
+                    foreach(int i in studentIdSelector)
                         studentID = i;
                     Session["ActiveStudentID"] = studentID;
                     //For Redirecting to relevant page during login

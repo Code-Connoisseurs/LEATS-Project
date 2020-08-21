@@ -15,6 +15,9 @@
 
         <dd>
             @Html.DisplayFor(model => model.Module.ModuleID)
+            @{ 
+                Session["appointmentsDetails"] = "Appointments for " + Html.DisplayFor(model => model.Module.ModuleCode) + " - " + Html.DisplayFor(model => model.Module.Description);
+            }
         </dd>
 
         <dt>
@@ -23,6 +26,11 @@
 
         <dd>
             @Html.DisplayFor(model => model.Tutor.TutorID)
+            @{ 
+                //This takes the tutor ID
+                Session["tutID"] = Html.DisplayFor(model => model.Tutor.TutorID);
+
+            }
             @Html.DisplayFor(model => model.Tutor.Student.FirstName)
 
         </dd>

@@ -39,8 +39,8 @@ namespace LEATS_Project.Controllers
         // GET: Appointments/Create
         public ActionResult Create()
         {
-            ViewBag.StudentD = new SelectList(db.Students, "StudentID", "Id");
-            ViewBag.TutorID = new SelectList(db.Tutors, "TutorID", "Experience");
+            ViewBag.StudentD = new SelectList(db.Students, "StudentID", "StudentID");
+            ViewBag.TutorID = new SelectList(db.Tutors, "TutorID", "TutorID");
             return View();
         }
 
@@ -54,11 +54,18 @@ namespace LEATS_Project.Controllers
             if (ModelState.IsValid)
             {
                 db.Appointments.Add(appointment);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.SaveChanges();
+                }catch(Exception)
+                {
+
+                }
+               
+                return RedirectToAction("Details");
             }
 
-            ViewBag.StudentD = new SelectList(db.Students, "StudentID", "Id", appointment.StudentD);
+            ViewBag.StudentD = new SelectList(db.Students, "StudentID", "StudentID", appointment.StudentD);
             ViewBag.TutorID = new SelectList(db.Tutors, "TutorID", "Experience", appointment.TutorID);
             return View(appointment);
         }
