@@ -62,8 +62,7 @@ namespace LEATS_Project.Controllers
 
                 }*/
                 db.SaveChanges();
-
-                return RedirectToAction("Details");
+                return RedirectToAction("Index","Home");
             }
 
             ViewBag.StudentD = new SelectList(db.Students, "StudentID", "StudentID", appointment.StudentD);
