@@ -42,7 +42,7 @@
           <Property Name="AppointmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="StudentD" Type="int" Nullable="false" />
           <Property Name="TutorID" Type="int" Nullable="false" />
-          <Property Name="RequestTime" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RequestTime" Type="datetime" Nullable="false" />
           <Property Name="AppointmentTime" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="AppointmentDuration" Type="int" Nullable="false" />
           <Property Name="AppointmentType" Type="varchar" MaxLength="50" Nullable="false" />
@@ -581,7 +581,7 @@
           <Property Name="AppointmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StudentD" Nullable="false" Type="Int32" />
           <Property Name="TutorID" Type="Int32" Nullable="false" />
-          <Property Name="RequestTime" Type="String" Nullable="false" />
+          <Property Name="RequestTime" Type="DateTime" Nullable="false" />
           <Property Name="AppointmentTime" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="AppointmentDuration" Type="Int32" Nullable="false" />
           <Property Name="AppointmentType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />

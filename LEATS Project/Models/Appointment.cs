@@ -24,7 +24,7 @@ namespace LEATS_Project.Models
         public int AppointmentID { get; set; }
         public int StudentD { get; set; }
         public int TutorID { get; set; }
-        public string RequestTime { get; set; }
+        public System.DateTime RequestTime { get; set; }
         public string AppointmentTime { get; set; }
         public int AppointmentDuration { get; set; }
         public string AppointmentType { get; set; }
