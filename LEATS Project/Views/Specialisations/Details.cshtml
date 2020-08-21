@@ -29,7 +29,19 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.SpecialisationID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<table class="back_or_book_table">
+    <tr>
+        <th>
+            @Html.ActionLink("BACK", "Index")
+        </th>
+        <th>
+           
+        </th>
+        <th>
+            @Html.ActionLink("BOOK APPOINTMENT", "Create", "Appointments")
+        </th>
+        <th></th>
+    </tr>
+</table>
+
+

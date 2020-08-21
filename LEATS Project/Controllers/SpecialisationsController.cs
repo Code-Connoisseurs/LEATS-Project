@@ -15,10 +15,16 @@ namespace LEATS_Project.Controllers
         private hon06Entities2 db = new hon06Entities2();
 
         // GET: Specialisations
-        public ActionResult Index()
+        /*public ActionResult Index()
         {
             var specialisations = db.Specialisations.Include(s => s.Module).Include(s => s.Tutor);
             return View(specialisations.ToList());
+        }*/
+
+        public ActionResult Index(string searchBox)
+        {
+
+            return View(db.Specialisations.Where(model => model.Module.ModuleCode.Contains(searchBox) || model.Tutor.Student.FirstName.Contains(searchBox) || model.Tutor.Student.LastName.Contains(searchBox) || searchBox == null).ToList());
         }
 
         // GET: Specialisations/Details/5

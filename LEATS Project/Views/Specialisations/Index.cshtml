@@ -3,19 +3,28 @@
 @{
     ViewBag.Title = "Index";
 }
+<br />
+<br />
+<br />
+<h4>Search for tutor</h4>
+<br />
+<br />
+@using (Html.BeginForm("Index", "Specialisations", FormMethod.Get))
+{
+    @Html.TextBox("searchBox")<input type="submit" value="Search" />
+}
+<br />
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<!--<p>
+    Html.ActionLink("Create New", "Create")
+</p>-->
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Module.ModuleID)
+            @Html.DisplayName("Tutor")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Tutor.TutorID)
+            @Html.DisplayName("Module name")
         </th>
         <th></th>
     </tr>
@@ -23,15 +32,15 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Module.ModuleID)
+            @Html.DisplayFor(modelItem => item.Tutor.Student.FirstName)
+            @Html.DisplayFor(modelItem => item.Tutor.Student.LastName)
+            
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Tutor.TutorID)
+            @Html.DisplayFor(modelItem => item.Module.ModuleCode)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SpecialisationID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SpecialisationID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SpecialisationID })
+            @Html.ActionLink("VIEW TUTOR DETAILS", "Details", new { id = item.SpecialisationID })
         </td>
     </tr>
 }
