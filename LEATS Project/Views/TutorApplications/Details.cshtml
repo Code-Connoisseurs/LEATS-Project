@@ -95,6 +95,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ApplicationID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.Action("ApproveTutor","TutorApplications", new { id = Model.ApplicationID }) |
+    <button onclick="@Html.ActionLink("Back to List", "Index")">Approve</button>
 </p>

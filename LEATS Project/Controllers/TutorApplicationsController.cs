@@ -34,10 +34,19 @@ namespace LEATS_Project.Controllers
             {
                 return HttpNotFound();
             }
-            tutorApplication.ApplicationStatus = "Approved";
-            db.SaveChanges();
 
             return View(tutorApplication);
+        }
+
+        public void ApproveTutor(int? id)
+        {
+            TutorApplication tutorApplication = db.TutorApplications.Find(id);
+            if (tutorApplication != null)
+            {
+                tutorApplication.ApplicationStatus = "Approved";
+                db.SaveChanges();
+            }
+           
         }
 
        
