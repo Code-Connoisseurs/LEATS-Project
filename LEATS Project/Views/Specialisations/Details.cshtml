@@ -8,8 +8,91 @@
 <div>
     <h4>Specialisation</h4>
     <hr />
+    <h3> Tutor Details</h3>
+    <div>
+        <table>
+            <tr>
+                <td>
+                    @{
+                        var base64 = Convert.ToBase64String(Model.Tutor.Student.ProfilePicture);
+                        var imgsrc = string.Format("data:image/gif;base64,{0}", base64);
+
+                    }
+                    <img src="@imgsrc" style="max-width:200px;max-height:200px" />
+                </td>
+
+            </tr>
+        </table>
+
+    </div>
+
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Tutor.Student.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tutor.Student.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tutor.Student.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tutor.Student.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tutor.Student.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tutor.Student.City)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tutor.Student.LevelOfStudy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tutor.Student.LevelOfStudy)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tutor.Qualification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tutor.Qualification)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tutor.Experience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tutor.Experience)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Module.ModuleCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Module.ModuleCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Module.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Module.Description)
+        </dd>
+        @{ 
+            Session["appointmentsDetails"] = "Appointment for " + Model.Module.ModuleCode + " - " + Model.Module.Description;
+        }
+        @{
+            //This takes the tutor ID
+            Session["tutID"] = Model.Tutor.TutorID;
+
+        }
+        @*Original*@
+        @*<dt>
             @Html.DisplayNameFor(model => model.Module.ModuleID)
         </dt>-
 
@@ -31,9 +114,9 @@
                 Session["tutID"] = Html.DisplayFor(model => model.Tutor.TutorID);
 
             }
-            @Html.DisplayFor(model => model.Tutor.Student.FirstName)
+            
 
-        </dd>
+        </dd>*@
 
     </dl>
 </div>

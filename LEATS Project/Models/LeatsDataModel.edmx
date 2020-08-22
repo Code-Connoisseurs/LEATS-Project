@@ -150,7 +150,7 @@
           <Property Name="AppointmentID" Type="int" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="Comment" Type="varchar" MaxLength="300" />
-          <Property Name="Rating" Type="float" Nullable="false" />
+          <Property Name="Rating" Type="int" Nullable="false" StoreGeneratedPattern="None" />
         </EntityType>
         <EntityType Name="Specialisation">
           <Key>
@@ -581,7 +581,7 @@
           <Property Name="AppointmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StudentD" Nullable="false" Type="Int32" />
           <Property Name="TutorID" Type="Int32" Nullable="false" />
-          <Property Name="RequestTime" Type="DateTime" Nullable="false" />
+          <Property Name="RequestTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="AppointmentTime" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="AppointmentDuration" Type="Int32" Nullable="false" />
           <Property Name="AppointmentType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -686,7 +686,7 @@
           <Property Name="AppointmentID" Type="Int32" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Comment" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="Rating" Type="Double" Nullable="false" />
+          <Property Name="Rating" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Appointment" Relationship="Self.FK_Review_Appointment" FromRole="Review" ToRole="Appointment" />
         </EntityType>
         <EntityType Name="Specialisation">
@@ -1232,11 +1232,11 @@
           <EntitySetMapping Name="Reviews">
             <EntityTypeMapping TypeName="hon06Model.Review">
               <MappingFragment StoreEntitySet="Review">
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
                 <ScalarProperty Name="ReviewID" ColumnName="ReviewID" />
                 <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="Rating" ColumnName="Rating" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
