@@ -64,7 +64,7 @@ namespace LEATS_Project.Controllers
         public ActionResult Create()
         {
             ViewBag.ModuleID = new SelectList(db.Modules, "ModuleID", "ModuleCode");
-            ViewBag.TutorID = new SelectList(db.Tutors, "TutorID", "Experience");
+            ViewBag.TutorID = new SelectList(db.Tutors, "TutorID", "TutorID");
             return View();
         }
 

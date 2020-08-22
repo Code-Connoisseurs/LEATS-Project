@@ -28,28 +28,28 @@
 
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Tutor.Student.FirstName)
+            First Name
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Tutor.Student.FirstName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Tutor.Student.LastName)
+            Last Name
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Tutor.Student.LastName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Tutor.Student.City)
+            City Based
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Tutor.Student.City)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Tutor.Student.LevelOfStudy)
+            Level of Study
         </dt>
 
         <dd>
@@ -70,19 +70,35 @@
             @Html.DisplayFor(model => model.Tutor.Experience)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Module.ModuleCode)
+            Module Code
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Module.ModuleCode)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Module.Description)
+            Module Description
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Module.Description)
         </dd>
+        <dt>
+            Sessions Completed
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tutor.NoOfSessions)
+        </dd>
+        <dt>
+            Average Rating out of 5
+        </dt>
+
+        <dd>
+            @{double averageRating = (Double)(Model.Tutor.TotalRating) / Model.Tutor.NoOfSessions;}
+            @averageRating
+        </dd>
+
         @{ 
             Session["appointmentsDetails"] = "Appointment for " + Model.Module.ModuleCode + " - " + Model.Module.Description;
         }
