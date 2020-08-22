@@ -107,7 +107,7 @@ namespace LEATS_Project.Controllers
                     foreach (string i in log)
                         StuLastName = i;
 
-                    if (StuLastName == "" )
+                    if (StuLastName == ""  )
                     {
                         return RedirectToAction("Create", "Students");
                     }else
