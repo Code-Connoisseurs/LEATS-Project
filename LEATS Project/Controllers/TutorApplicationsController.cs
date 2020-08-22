@@ -34,9 +34,13 @@ namespace LEATS_Project.Controllers
             {
                 return HttpNotFound();
             }
+            tutorApplication.ApplicationStatus = "Approved";
+            db.SaveChanges();
 
             return View(tutorApplication);
         }
+
+       
         [HttpGet]
         public FileResult DownloadFileAcademicTrans(int? id)
         {
