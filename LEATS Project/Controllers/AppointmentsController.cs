@@ -62,9 +62,9 @@ namespace LEATS_Project.Controllers
 
                 }*/
                 db.SaveChanges();
+                Session["successMsg"] = true;
                 return RedirectToAction("Index","Home");
             }
-
             ViewBag.StudentD = new SelectList(db.Students, "StudentID", "StudentID", appointment.StudentD);
             ViewBag.TutorID = new SelectList(db.Tutors, "TutorID", "Experience", appointment.TutorID);
             return View(appointment);
