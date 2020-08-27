@@ -7,13 +7,34 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using LEATS_Project.Models;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace LEATS_Project.Controllers
 {
     public class StudentsController : Controller
     {
+        private ApplicationUserManager _userManager;
         private hon06Entities2 db = new hon06Entities2();
 
+        public StudentsController()
+        {
+
+        }
+        public StudentsController(ApplicationUserManager userManager)
+        {
+            UserManager = userManager;
+        }
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
         // GET: Students
         public ActionResult Index()
         {
@@ -59,6 +80,7 @@ namespace LEATS_Project.Controllers
                     student.ProfilePicture = new byte[image1.ContentLength];
                     image1.InputStream.Read(student.ProfilePicture, 0, image1.ContentLength);
                 }
+                UserManager.AddToRoleAsync(student.Id, "Student");
                 db.Students.Add(student);
                 db.SaveChanges();
                 return RedirectToAction("Index", "Home");
