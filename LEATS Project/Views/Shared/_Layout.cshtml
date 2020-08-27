@@ -27,11 +27,15 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Find a Tutor", "Index", "Specialisations")</li>
-                    <li>@Html.ActionLink("Become a Tutor", "Create", "TutorApplications")</li><!--It will take you to add module if you are a tutor-->
+                    <!--It will take you to add module if you are a tutor-->
 
                    </ul>
-                @if (User.IsInRole("Student"))
+                @if (User.IsInRole("Student") && User.IsInRole("Tutor"))
+                {
+                    @Html.Partial("_GeneralPartial")
+                    @Html.Partial("_LoginPartial")
+                }
+                else if (User.IsInRole("Student"))
                 {
                     @Html.Partial("_StudentPartial")
                     @Html.Partial("_LoginPartial")
@@ -41,12 +45,7 @@
                     @Html.Partial("_TutorPartial")
                     @Html.Partial("_LoginPartial")
                 }
-                else if (User.IsInRole("Student") && User.IsInRole("Tutor"))
-                {
-                    @Html.Partial("_StudentPartial")
-                    @Html.Partial("_TutorPartial")
-                    @Html.Partial("_LoginPartial")
-                }
+               
                 else if (User.IsInRole("Admin"))
                 {
                     @Html.Partial("_AdminPartial")
@@ -54,7 +53,7 @@
                 }
                 else
                 {
-                    //Html.Partial("_StudentPartial")//for testing
+             
                     @Html.Partial("_LoginPartial")
                     
                 }
