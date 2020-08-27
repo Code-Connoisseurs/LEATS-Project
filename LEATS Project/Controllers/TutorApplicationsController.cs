@@ -7,13 +7,33 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using LEATS_Project.Models;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace LEATS_Project.Controllers
 {
     public class TutorApplicationsController : Controller
     {
+        private ApplicationUserManager _userManager;
         private hon06Entities2 db = new hon06Entities2();
+        public TutorApplicationsController()
+        {
 
+        }
+        public TutorApplicationsController(ApplicationUserManager userManager)
+        {
+            UserManager = userManager;
+        }
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
         // GET: TutorApplications
         [Authorize(Roles = "Admin")]
         public ActionResult Index()
@@ -44,12 +64,14 @@ namespace LEATS_Project.Controllers
             if (tutorApplication != null)
             {
                 tutorApplication.ApplicationStatus = "Approved";
+
+                UserManager.AddToRoleAsync(tutorApplication.Student.Id, "Tutor");
                 db.SaveChanges();
             }
-           
+
         }
 
-       
+
         [HttpGet]
         public FileResult DownloadFileAcademicTrans(int? id)
         {

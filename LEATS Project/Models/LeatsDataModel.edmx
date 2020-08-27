@@ -150,7 +150,7 @@
           <Property Name="AppointmentID" Type="int" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="Comment" Type="varchar" MaxLength="300" />
-          <Property Name="Rating" Type="int" Nullable="false" StoreGeneratedPattern="None" />
+          <Property Name="Rating" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Specialisation">
           <Key>
