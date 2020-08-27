@@ -20,7 +20,7 @@ namespace LEATS_Project.Controllers
             var specialisations = db.Specialisations.Include(s => s.Module).Include(s => s.Tutor);
             return View(specialisations.ToList());
         }*/
-
+        [Authorize]
         public ActionResult Index(string searchBox)
         {
 
