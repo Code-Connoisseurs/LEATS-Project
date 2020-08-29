@@ -64,7 +64,6 @@ namespace LEATS_Project.Controllers
             if (tutorApplication != null)
             {
                 tutorApplication.ApplicationStatus = "Approved";
-
                 UserManager.AddToRoleAsync(tutorApplication.Student.Id, "Tutor");
                 db.SaveChanges();
             }
