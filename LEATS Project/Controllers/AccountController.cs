@@ -103,11 +103,20 @@ namespace LEATS_Project.Controllers
                     var log = from u in db.Students
                                  where u.Email == model.Email
                                  select u.LastName;
+
+
                     String StuLastName = "";
                     foreach (string i in log)
                         StuLastName = i;
 
-                    if (StuLastName == ""  )
+                    var logAdmin = from u in db.Administrators
+                              where u.Email == model.Email
+                              select u.LastName;
+                    String AdminLastName = "";
+                    foreach (string i in logAdmin)
+                        AdminLastName += i;
+
+                    if (StuLastName == "" && AdminLastName == "" )
                     {
                         return RedirectToAction("Create", "Students");
                     }else

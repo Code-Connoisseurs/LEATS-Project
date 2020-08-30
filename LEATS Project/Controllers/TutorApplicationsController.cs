@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using LEATS_Project.Models;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity;
 
 namespace LEATS_Project.Controllers
 {
@@ -64,7 +65,7 @@ namespace LEATS_Project.Controllers
             if (tutorApplication != null)
             {
                 tutorApplication.ApplicationStatus = "Approved";
-                UserManager.AddToRoleAsync(tutorApplication.Student.Id, "Tutor");
+                UserManager.AddToRole(tutorApplication.Student.Id, "Tutor");
                 db.SaveChanges();
             }
 

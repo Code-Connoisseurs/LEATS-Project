@@ -8,9 +8,11 @@ using System.Web;
 using System.Web.Mvc;
 using LEATS_Project.Models;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity;
 
 namespace LEATS_Project.Controllers
 {
+
     public class StudentsController : Controller
     {
         private ApplicationUserManager _userManager;
@@ -80,7 +82,7 @@ namespace LEATS_Project.Controllers
                     student.ProfilePicture = new byte[image1.ContentLength];
                     image1.InputStream.Read(student.ProfilePicture, 0, image1.ContentLength);
                 }
-                UserManager.AddToRoleAsync(student.Id, "Student");
+                UserManager.AddToRole(student.Id, "Student");
                 db.Students.Add(student);
                 db.SaveChanges();
                 return RedirectToAction("Index", "Home");
