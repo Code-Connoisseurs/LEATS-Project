@@ -13,7 +13,6 @@ namespace LEATS_Project.Controllers
     public class AppointmentsController : Controller
     {
         private hon06Entities2 db = new hon06Entities2();
-
         // GET: Appointments
         public ActionResult Index()
         {
@@ -42,6 +41,30 @@ namespace LEATS_Project.Controllers
             ViewBag.StudentD = new SelectList(db.Students, "StudentID", "StudentID");
             ViewBag.TutorID = new SelectList(db.Tutors, "TutorID", "TutorID");
             return View();
+        }
+
+        public bool isDoubleBooking()
+        {
+            //ViewBag.TutorID = new SelectList(db.Tutors, "TutorID", "Experience", appointment.TutorID);
+            var appointDates = from appoint in db.Appointments
+                              where appoint.TutorID == 1
+                              select appoint.AppointmentDate;
+
+            var appointSlots = from appoint in db.Appointments
+                               where appoint.TutorID == 1
+                               select appoint.AppointmentTime;
+
+            var datee = 0;
+            bool slot = false;
+            foreach(string i in appointSlots)
+            {
+                if (i == "8-90:30 AM") //8-90:30 AM will be replaced by input date
+                {
+                    slot = true;
+                }
+            }
+                
+            return slot;
         }
 
         // POST: Appointments/Create

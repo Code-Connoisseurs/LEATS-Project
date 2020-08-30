@@ -30,7 +30,11 @@
                     <!--It will take you to add module if you are a tutor-->
 
                    </ul>
-                @if (User.IsInRole("Student") && User.IsInRole("Tutor"))
+                @if (User.IsInRole("User"))
+                {
+                    @Html.Partial("_UserPartial")
+                }
+                else if (User.IsInRole("Student") && User.IsInRole("Tutor"))
                 {
                     @Html.Partial("_GeneralPartial")
                     @Html.Partial("_LoginPartial")
@@ -45,7 +49,7 @@
                     @Html.Partial("_TutorPartial")
                     @Html.Partial("_LoginPartial")
                 }
-               
+
                 else if (User.IsInRole("Admin"))
                 {
                     @Html.Partial("_AdminPartial")
@@ -53,9 +57,10 @@
                 }
                 else
                 {
-             
+
                     @Html.Partial("_LoginPartial")
-                    
+
+
                 }
 
             </div>
