@@ -14,6 +14,7 @@
             <tr>
                 <td>
                     @{
+
                         var base64 = Convert.ToBase64String(Model.Tutor.Student.ProfilePicture);
                         var imgsrc = string.Format("data:image/gif;base64,{0}", base64);
 

@@ -268,6 +268,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\about.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\inside_styles.css" />
@@ -281,7 +282,9 @@
     <Content Include="Images\1.png" />
     <Content Include="Images\2.jpg" />
     <Content Include="Images\3.jpg" />
+    <Content Include="Images\b.jpg" />
     <Content Include="Images\books.jpg" />
+    <Content Include="Images\image.jpg" />
     <Content Include="Images\khayeh.jpg" />
     <Content Include="Images\tutor1.jpg" />
     <Content Include="Models\LeatsDataModel.Context.tt">
