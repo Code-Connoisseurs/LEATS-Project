@@ -84,14 +84,19 @@ namespace LEATS_Project.Controllers
                 {
 
                 }*/
+                Session["successMsg"] = "Appointment booked sucessfully";
                 db.SaveChanges();
-                Session["successMsg"] = true;
-                return RedirectToAction("Index","Home");
+                ViewBag.sucess = "Appointment booked sucessfully";
+                return RedirectToAction("InsideIndex","Home", Session["successMsg"]);
             }
+            Session["successMsg"] = "An error occured";
+            //ViewBag.sucess = "An error occured";
             ViewBag.StudentD = new SelectList(db.Students, "StudentID", "StudentID", appointment.StudentD);
             ViewBag.TutorID = new SelectList(db.Tutors, "TutorID", "Experience", appointment.TutorID);
             return View(appointment);
         }
+
+
 
         // GET: Appointments/Edit/5
         public ActionResult Edit(int? id)
