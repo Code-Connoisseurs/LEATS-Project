@@ -100,6 +100,7 @@ namespace LEATS_Project.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            //Select by ID
             ViewBag.StudentD = new SelectList(db.Students, "StudentID", "Id", appointment.StudentD);
             ViewBag.TutorID = new SelectList(db.Tutors, "TutorID", "Experience", appointment.TutorID);
             return View(appointment);
