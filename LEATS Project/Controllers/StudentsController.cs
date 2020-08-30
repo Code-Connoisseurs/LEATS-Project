@@ -85,7 +85,7 @@ namespace LEATS_Project.Controllers
                 UserManager.AddToRole(student.Id, "Student");
                 db.Students.Add(student);
                 db.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("InsideIndex", "Home");
             }
 
             ViewBag.Id = new SelectList(db.AspNetUsers, "Id", "Email", Session["ActiveUser"]);

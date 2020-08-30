@@ -1,14 +1,9 @@
 ﻿@model IEnumerable<LEATS_Project.Models.Administrator>
 
-@{
-    ViewBag.Title = "Index";
-}
+<br />
+<br />
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<h4>My Profile</h4>
 <table class="table">
     <tr>
         <th>
@@ -92,7 +87,6 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.AdministratorID }) |
             @Html.ActionLink("Details", "Details", new { id=item.AdministratorID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AdministratorID })
         </td>
     </tr>
 }

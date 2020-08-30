@@ -1,10 +1,5 @@
 ﻿@model LEATS_Project.Models.TutorApplication
-
-@{
-    ViewBag.Title = "Create";
-}
-
-<h2>Create</h2>
+<br />
 
 @using (Html.BeginForm("Create", "TutorApplications", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -17,7 +12,10 @@
         <div class="form-group">
             @Html.LabelFor(model => model.StudentID, "StudentID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("StudentID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.StudentID, new List<SelectListItem>
+           {
+               new SelectListItem {Text = Session["ActiveStudentID"].ToString(), Value = Session["ActiveStudentID"].ToString(), Selected = true },
+           }, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.StudentID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -63,19 +61,22 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ApplicationStatus, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ApplicationStatus, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.ApplicationStatus, new List<SelectListItem>
+           {
+               new SelectListItem {Text = "Pending", Value = "Pending", Selected = true },
+           }, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ApplicationStatus, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Submit" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("BACK", "InsideIndex","Home")
 </div>
