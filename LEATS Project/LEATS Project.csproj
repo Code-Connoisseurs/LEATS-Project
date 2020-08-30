@@ -282,10 +282,13 @@
     <Content Include="Images\1.png" />
     <Content Include="Images\2.jpg" />
     <Content Include="Images\3.jpg" />
+    <Content Include="Images\6-advantages-of-online-tutoring.jpeg" />
     <Content Include="Images\b.jpg" />
     <Content Include="Images\books.jpg" />
+    <Content Include="Images\finding-a-tutor-1080x675.jpg" />
     <Content Include="Images\image.jpg" />
     <Content Include="Images\khayeh.jpg" />
+    <Content Include="Images\Tutor.jpg" />
     <Content Include="Images\tutor1.jpg" />
     <Content Include="Models\LeatsDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -421,6 +424,7 @@
     <Content Include="Views\AspNetRoles\Details.cshtml" />
     <Content Include="Views\AspNetRoles\Edit.cshtml" />
     <Content Include="Views\AspNetRoles\Index.cshtml" />
+    <Content Include="Views\Home\InsideIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

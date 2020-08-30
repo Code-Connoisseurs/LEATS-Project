@@ -112,7 +112,7 @@ namespace LEATS_Project.Controllers
                         return RedirectToAction("Create", "Students");
                     }else
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("InsideIndex", "Home");
                     }
 
                 case SignInStatus.LockedOut:

@@ -1,24 +1,26 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿
+@{
+    ViewBag.Title = "InsideIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
 <html>
-      <head>
-          <title>W3.CSS Template</title>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1">
-          <!--Right hand bar css-->
-          <link rel="stylesheet" href="~/Content/RightBarStyle.css">
-          <!--Dont  know where this css belong-->
-          <link rel="stylesheet" href="~/Content/MainOrDontKnowStyle.css">
-          <style>
-              body, h1, h2, h3, h4, h5 {
-                  font-family: "Raleway", sans-serif;
-              }
-          </style>
-          
-      </head>
+<head>
+    <title>W3.CSS Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Right hand bar css-->
+    <link rel="stylesheet" href="~/Content/RightBarStyle.css">
+    <!--Dont  know where this css belong-->
+    <link rel="stylesheet" href="~/Content/MainOrDontKnowStyle.css">
+    <style>
+        body, h1, h2, h3, h4, h5 {
+            font-family: "Raleway", sans-serif;
+        }
+    </style>
+
+</head>
 
 <body class="w3-light-grey">
 
@@ -43,14 +45,14 @@
                     <!--My slideshow images-->
                     <div class="SlideShowImages">
                         <div class="slide">
-                            <img src="~/Images/1.png" alt="Nature" style="width:100%">
+                            <img src="~/Images/6-advantages-of-online-tutoring.jpeg" alt="Nature" style="width:100%">
                         </div>
-                        
+
                     </div>
-                    
+
                     <div class="w3-container">
                         <h3><b>We help students finds tutors from anywhere</b></h3>
-                      
+
                     </div>
 
                     <div class="w3-container">
@@ -59,7 +61,7 @@
                         </p>
                         <div class="w3-row">
                             <div class="w3-col m8 s12">
-                                <b>@Html.ActionLink("READ MORE","About","Home")</b>
+                                <b>@Html.ActionLink("READ MORE", "About", "Home")</b>
                                 <br />
                                 <br />
                             </div>
@@ -100,14 +102,6 @@
             <!-- Introduction menu -->
             <div class="w3-col l4">
                 <!-- About Card -->
-                <div class="w3-card w3-margin w3-margin-top">
-                    <!--<img src="~/Images/" style="width:100%">-->
-                    <div class="w3-container w3-white">
-                        <h4 style="color:maroon"><b>Want to find or become a tutor?</b></h4>
-                        <h5>Click <strong>@Html.ActionLink("HERE", "Login", "Account")</strong> to login/register</h5>
-                    </div>
-                </div><hr>
-
                 <!-- Posts -->
                 <div class="w3-card w3-margin">
                     <div class="w3-container w3-padding">
@@ -139,12 +133,12 @@
                     </div>
                     <div class="w3-container w3-white">
                         <p>
-                            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">TUTOR</span> 
-                            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">STUDENT</span> 
-                            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">EXCEL</span> 
-                            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">LEARN</span> 
-                        </p>
-                    </div>*@
+                            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">TUTOR</span>
+                            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">STUDENT</span>
+                            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">EXCEL</span>
+                            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">LEARN</span>
+                        </p>*@
+                    </div>
                 </div>
 
                 <!-- END Introduction Menu -->
@@ -156,7 +150,7 @@
         <!-- END w3-content -->
     </div>
 
-    <!-- Footer -->
-
 </body>
 </html>
+
+

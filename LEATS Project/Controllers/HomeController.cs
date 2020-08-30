@@ -13,6 +13,12 @@ namespace LEATS_Project.Controllers
         {
             return View();
         }
+
+        public ActionResult InsideIndex()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
