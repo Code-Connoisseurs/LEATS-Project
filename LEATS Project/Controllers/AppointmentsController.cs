@@ -49,7 +49,7 @@ namespace LEATS_Project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AppointmentID,StudentD,TutorID,RequestTime,AppointmentTime,AppointmentDuration,AppointmentType,AppointmentStatus,AppointmentDetails,Location")] Appointment appointment)
+        public ActionResult Create([Bind(Include = "AppointmentID,StudentD,TutorID,RequestTime,AppointmentDate,AppointmentTime,AppointmentDuration,AppointmentType,AppointmentStatus,AppointmentDetails,Location")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +92,7 @@ namespace LEATS_Project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AppointmentID,StudentD,TutorID,RequestTime,AppointmentTime,AppointmentDuration,AppointmentType,AppointmentStatus,AppointmentDetails,Location")] Appointment appointment)
+        public ActionResult Edit([Bind(Include = "AppointmentID,StudentD,TutorID,RequestTime,AppointmentDate,AppointmentTime,AppointmentDuration,AppointmentType,AppointmentStatus,AppointmentDetails,Location")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {

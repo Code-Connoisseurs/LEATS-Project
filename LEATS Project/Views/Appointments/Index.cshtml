@@ -15,6 +15,9 @@
             @Html.DisplayNameFor(model => model.RequestTime)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.AppointmentDate)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.AppointmentTime)
         </th>
         <th>
@@ -45,6 +48,9 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.RequestTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppointmentDate)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.AppointmentTime)
