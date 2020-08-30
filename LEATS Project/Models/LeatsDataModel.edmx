@@ -49,6 +49,7 @@
           <Property Name="AppointmentStatus" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="AppointmentDetails" Type="varchar" MaxLength="150" />
           <Property Name="Location" Type="varchar" MaxLength="300" />
+          <Property Name="AppointmentDate" Type="date" />
         </EntityType>
         <EntityType Name="AspNetRoles">
           <Key>
@@ -593,6 +594,7 @@
           <NavigationProperty Name="Payments" Relationship="Self.FK_Payment_Appointment" FromRole="Appointment" ToRole="Payment" />
           <NavigationProperty Name="Reviews" Relationship="Self.FK_Review_Appointment" FromRole="Appointment" ToRole="Review" />
           <NavigationProperty Name="Student1" Relationship="hon06Model.FK_Appointment_Student1" FromRole="Appointment" ToRole="Student" />
+          <Property Name="AppointmentDate" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="AspNetRole">
           <Key>
@@ -1138,6 +1140,7 @@
           <EntitySetMapping Name="Appointments">
             <EntityTypeMapping TypeName="hon06Model.Appointment">
               <MappingFragment StoreEntitySet="Appointment">
+                <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
                 <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
                 <ScalarProperty Name="StudentD" ColumnName="StudentD" />
                 <ScalarProperty Name="TutorID" ColumnName="TutorID" />

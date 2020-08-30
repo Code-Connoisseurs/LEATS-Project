@@ -31,6 +31,7 @@ namespace LEATS_Project.Models
         public string AppointmentStatus { get; set; }
         public string AppointmentDetails { get; set; }
         public string Location { get; set; }
+        public Nullable<System.DateTime> AppointmentDate { get; set; }
     
         public virtual Student Student { get; set; }
         public virtual Tutor Tutor { get; set; }
