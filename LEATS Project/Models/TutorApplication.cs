@@ -15,7 +15,6 @@ namespace LEATS_Project.Models
 
     public partial class TutorApplication
     {
-        [Required]
         public int ApplicationID { get; set; }
         [Required]
         public int StudentID { get; set; }
@@ -23,9 +22,7 @@ namespace LEATS_Project.Models
         public string ModuleCode { get; set; }
         [Required]
         public string ModuleName { get; set; }
-        [Required]
         public byte[] AcademicTranscript { get; set; }
-        [Required]
         public byte[] ProofOfRegistration { get; set; }
         public System.DateTime ApplicationDate { get; set; }
         public string ApplicationStatus { get; set; }
