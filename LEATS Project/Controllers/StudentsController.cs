@@ -9,6 +9,9 @@ using System.Web.Mvc;
 using LEATS_Project.Models;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity;
+using System.IO;
+using System.Drawing;
+using System.Web.Hosting;
 
 namespace LEATS_Project.Controllers
 {
@@ -82,6 +85,30 @@ namespace LEATS_Project.Controllers
                     student.ProfilePicture = new byte[image1.ContentLength];
                     image1.InputStream.Read(student.ProfilePicture, 0, image1.ContentLength);
                 }
+                else
+                {
+                    byte[] imageBytes = null;
+                    string path = HostingEnvironment.MapPath("~/Images/");
+
+                    FileStream filestream = null;
+                    if (student.Gender == "Male")
+                    {
+                        filestream = new FileStream(path + "ProfilePicMale.jfif", FileMode.Open, FileAccess.Read);
+                    }
+                    else
+                    {
+                        filestream = new FileStream(path + "ProfilePicFemale.png", FileMode.Open, FileAccess.Read);
+                    }
+                    using (BinaryReader reader = new BinaryReader(filestream))
+                    {
+                        imageBytes = new byte[reader.BaseStream.Length];
+                        for (int i = 0; i < reader.BaseStream.Length; i++)
+                        {
+                            imageBytes[i] = reader.ReadByte();
+                        }
+                    }
+                    student.ProfilePicture = imageBytes;
+                }
                 UserManager.AddToRole(student.Id, "Student");
                 db.Students.Add(student);
                 db.SaveChanges();
@@ -121,6 +148,30 @@ namespace LEATS_Project.Controllers
                 {
                     student.ProfilePicture = new byte[image1.ContentLength];
                     image1.InputStream.Read(student.ProfilePicture, 0, image1.ContentLength);
+                }
+                else
+                {
+                    byte[] imageBytes = null;
+                    string path = HostingEnvironment.MapPath("~/Images/");
+
+                    FileStream filestream = null;
+                    if(student.Gender == "Male")
+                    {
+                        filestream = new FileStream(path + "ProfilePicMale.jfif", FileMode.Open, FileAccess.Read);
+                    }
+                    else
+                    {
+                        filestream = new FileStream(path + "ProfilePicFemale.png", FileMode.Open, FileAccess.Read);
+                    }
+                    using (BinaryReader reader = new BinaryReader(filestream))
+                    {
+                        imageBytes = new byte[reader.BaseStream.Length];
+                        for (int i = 0; i < reader.BaseStream.Length; i++)
+                        {
+                            imageBytes[i] = reader.ReadByte();
+                        }
+                    }
+                    student.ProfilePicture = imageBytes;
                 }
                 db.Entry(student).State = EntityState.Modified;
                 db.SaveChanges();
