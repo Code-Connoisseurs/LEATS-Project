@@ -10,8 +10,16 @@
             <tr>
                 <td>
                     @{
-                        var base64 = Convert.ToBase64String(Model.ProfilePicture);
-                        var imgsrc = string.Format("data:image/gif;base64,{0}", base64);
+                        var imgsrc = "";
+                        if (Model.ProfilePicture != null)
+                        {
+                            var base64 = Convert.ToBase64String(Model.ProfilePicture);
+                            imgsrc = string.Format("data:image/gif;base64,{0}", base64);
+                        }
+                        else
+                        {
+                            imgsrc = "~/Images/tutor1.jpg.ImageUrl";
+                        }
 
                     }
                     <img src="@imgsrc" style="max-width:200px;max-height:200px" />

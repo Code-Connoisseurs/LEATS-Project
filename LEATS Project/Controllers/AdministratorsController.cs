@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using LEATS_Project.Models;
+using System.IO;
+using System.Web.Hosting;
 
 namespace LEATS_Project.Controllers
 {
@@ -57,6 +59,29 @@ namespace LEATS_Project.Controllers
                 {
                     administrator.ProfilePicture = new byte[image1.ContentLength];
                     image1.InputStream.Read(administrator.ProfilePicture, 0, image1.ContentLength);
+                }else
+                {
+                    byte[] imageBytes = null;
+                    string path = HostingEnvironment.MapPath("~/Images/");
+
+                    FileStream filestream = null;
+                    if (administrator.Gender == "Male")
+                    {
+                        filestream = new FileStream(path + "ProfilePicMale.jfif", FileMode.Open, FileAccess.Read);
+                    }
+                    else
+                    {
+                        filestream = new FileStream(path + "ProfilePicFemale.png", FileMode.Open, FileAccess.Read);
+                    }
+                    using (BinaryReader reader = new BinaryReader(filestream))
+                    {
+                        imageBytes = new byte[reader.BaseStream.Length];
+                        for (int i = 0; i < reader.BaseStream.Length; i++)
+                        {
+                            imageBytes[i] = reader.ReadByte();
+                        }
+                    }
+                    administrator.ProfilePicture = imageBytes;
                 }
                 db.Administrators.Add(administrator);
                 db.SaveChanges();
@@ -96,6 +121,29 @@ namespace LEATS_Project.Controllers
                 {
                     administrator.ProfilePicture = new byte[image1.ContentLength];
                     image1.InputStream.Read(administrator.ProfilePicture, 0, image1.ContentLength);
+                }else
+                {
+                    byte[] imageBytes = null;
+                    string path = HostingEnvironment.MapPath("~/Images/");
+
+                    FileStream filestream = null;
+                    if (administrator.Gender == "Male")
+                    {
+                        filestream = new FileStream(path + "ProfilePicMale.jfif", FileMode.Open, FileAccess.Read);
+                    }
+                    else
+                    {
+                        filestream = new FileStream(path + "ProfilePicFemale.png", FileMode.Open, FileAccess.Read);
+                    }
+                    using (BinaryReader reader = new BinaryReader(filestream))
+                    {
+                        imageBytes = new byte[reader.BaseStream.Length];
+                        for (int i = 0; i < reader.BaseStream.Length; i++)
+                        {
+                            imageBytes[i] = reader.ReadByte();
+                        }
+                    }
+                    administrator.ProfilePicture = imageBytes;
                 }
                 db.Entry(administrator).State = EntityState.Modified;
                 db.SaveChanges();
