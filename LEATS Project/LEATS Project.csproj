@@ -427,6 +427,7 @@
     <Content Include="Views\AspNetRoles\Index.cshtml" />
     <Content Include="Views\Home\InsideIndex.cshtml" />
     <Content Include="Views\Shared\_UserPartial.cshtml" />
+    <Content Include="Views\Shared\_StudentTutorPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

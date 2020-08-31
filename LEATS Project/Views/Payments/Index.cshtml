@@ -1,14 +1,10 @@
 ﻿@model IEnumerable<LEATS_Project.Models.Payment>
 
-@{
-    ViewBag.Title = "Index";
-}
+<br />
+<br />
 
-<h2>Index</h2>
+<h1>PROTOTYPE (no functionality yet) </h1>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -55,9 +51,11 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.PaymentID }) |
             @Html.ActionLink("Details", "Details", new { id=item.PaymentID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PaymentID })
         </td>
     </tr>
 }
 
 </table>
+<p>
+  @Html.ActionLink("BACK","InsideIndex","Home")
+</p>

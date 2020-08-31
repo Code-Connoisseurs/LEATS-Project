@@ -36,7 +36,7 @@
                 }
                 else if (User.IsInRole("Student") && User.IsInRole("Tutor"))
                 {
-                    @Html.Partial("_GeneralPartial")
+                    @Html.Partial("_StudentTutorPartial")
                     @Html.Partial("_LoginPartial")
                 }
                 else if (User.IsInRole("Student"))
