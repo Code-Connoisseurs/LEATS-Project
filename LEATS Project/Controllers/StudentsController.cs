@@ -155,7 +155,7 @@ namespace LEATS_Project.Controllers
                     string path = HostingEnvironment.MapPath("~/Images/");
 
                     FileStream filestream = null;
-                    if(student.Gender == "Male")
+                    if (student.Gender == "Male")
                     {
                         filestream = new FileStream(path + "ProfilePicMale.jfif", FileMode.Open, FileAccess.Read);
                     }
