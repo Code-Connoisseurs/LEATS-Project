@@ -1,10 +1,7 @@
 ﻿@model LEATS_Project.Models.Student
+<br />
 
-@{
-    ViewBag.Title = "Edit";
-}
-
-<h2>Edit</h2>
+<h2>Edit profile</h2>
 
 @using (Html.BeginForm("Edit", "Students", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -222,5 +219,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("BACK", "Index")
 </div>

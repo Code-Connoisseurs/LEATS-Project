@@ -11,18 +11,21 @@ namespace LEATS_Project.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TutorApplication
     {
         public int ApplicationID { get; set; }
+        [Required]
         public int StudentID { get; set; }
+        [Required]
         public string ModuleCode { get; set; }
+        [Required]
         public string ModuleName { get; set; }
         public byte[] AcademicTranscript { get; set; }
         public byte[] ProofOfRegistration { get; set; }
         public System.DateTime ApplicationDate { get; set; }
         public string ApplicationStatus { get; set; }
-    
         public virtual Student Student { get; set; }
     }
 }

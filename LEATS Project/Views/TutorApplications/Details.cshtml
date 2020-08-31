@@ -94,6 +94,14 @@
 
     </dl>
 </div>
+<script>
+     function myFunction() {
+        alert("Tutor has been approved")
+     }
+</script>
 <p>
-    @Html.Action("ApproveTutor","TutorApplications", new { id = Model.ApplicationID })<input type="submit" value="Approve"/>|
+    @Html.Action("ApproveTutor","TutorApplications", new { id = Model.ApplicationID })<input type="submit" onclick="myFunction()" value="Approve"/>|
 </p>
+<div>
+    @Html.ActionLink("BACK", "Index")
+</div>

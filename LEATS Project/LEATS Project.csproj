@@ -293,6 +293,7 @@
     <Content Include="Images\ProfilePicMale.jfif" />
     <Content Include="Images\Tutor.jpg" />
     <Content Include="Images\tutor1.jpg" />
+    <Content Include="Images\Tutoring jobs in South Africa.mp4" />
     <Content Include="Models\LeatsDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>LeatsDataModel.edmx</DependentUpon>

@@ -11,23 +11,39 @@ namespace LEATS_Project.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Administrator
     {
+        
         public int AdministratorID { get; set; }
+        [Required]
         public string Id { get; set; }
+        [Required]
         public string FirstName { get; set; }
+        [Required]
         public string LastName { get; set; }
+        [Required]
         public string Gender { get; set; }
+        [Required]
         public string Ethnicity { get; set; }
+        [Required]
         public System.DateTime DateOfBirth { get; set; }
+        [Required]
         public string CellphoneNo { get; set; }
+        [Required]
         public string Email { get; set; }
+        [Required]
         public string StreetName { get; set; }
+        [Required]
         public string Suburb { get; set; }
+        [Required]
         public string City { get; set; }
+        [Required]
         public string Province { get; set; }
+        [Required]
         public int PostalCode { get; set; }
+        [Required]
         public byte[] ProfilePicture { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
