@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -288,6 +289,8 @@
     <Content Include="Images\finding-a-tutor-1080x675.jpg" />
     <Content Include="Images\image.jpg" />
     <Content Include="Images\khayeh.jpg" />
+    <Content Include="Images\ProfilePicFemale.png" />
+    <Content Include="Images\ProfilePicMale.jfif" />
     <Content Include="Images\Tutor.jpg" />
     <Content Include="Images\tutor1.jpg" />
     <Content Include="Models\LeatsDataModel.Context.tt">
