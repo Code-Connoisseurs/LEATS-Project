@@ -110,6 +110,7 @@ namespace LEATS_Project.Controllers
                     student.ProfilePicture = imageBytes;
                 }
                 UserManager.AddToRole(student.Id, "Student");
+                UserManager.RemoveFromRole(student.Id, "User");
                 db.Students.Add(student);
                 db.SaveChanges();
                 return RedirectToAction("InsideIndex", "Home");
