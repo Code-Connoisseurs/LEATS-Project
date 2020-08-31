@@ -76,6 +76,7 @@ namespace LEATS_Project.Controllers
         {
             if (ModelState.IsValid)
             {
+                appointment.RequestTime = DateTime.Now;
                 db.Appointments.Add(appointment);
                 /*try
                 {
@@ -84,6 +85,7 @@ namespace LEATS_Project.Controllers
                 {
 
                 }*/
+
                 Session["successMsg"] = "Appointment booked sucessfully";
                 db.SaveChanges();
                 ViewBag.sucess = "Appointment booked sucessfully";
