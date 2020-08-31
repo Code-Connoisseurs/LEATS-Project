@@ -33,6 +33,7 @@
                 @if (User.IsInRole("User"))
                 {
                     @Html.Partial("_UserPartial")
+                    @Html.Partial("_LoginPartial")
                 }
                 else if (User.IsInRole("Student") && User.IsInRole("Tutor"))
                 {
