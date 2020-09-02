@@ -14,8 +14,8 @@
         <h4>Student</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Id, "Id")
+        <div class="form-group",@style = "display:none">
+           
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.Id, new List<SelectListItem>
            {

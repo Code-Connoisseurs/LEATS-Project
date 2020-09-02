@@ -6,9 +6,7 @@
 
 <h2>Appointment Booking</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -33,7 +31,7 @@
             @Html.DisplayNameFor(model => model.Location)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Student.Id)
+            @Html.DisplayNameFor(model => model.Student.Email)
         </th>
 
         <th></th>
@@ -65,7 +63,7 @@
                 @Html.DisplayFor(modelItem => item.Location)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Student.Id)
+                @Html.DisplayFor(modelItem => item.Student.Email)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.AppointmentID }) |
@@ -102,7 +100,7 @@ else if (User.IsInRole("Student") && !User.IsInRole("Tutor"))
                 @Html.DisplayFor(modelItem => item.Location)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Student.Id)
+                @Html.DisplayFor(modelItem => item.Student.Email)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.AppointmentID }) |
@@ -139,12 +137,11 @@ else if (User.IsInRole("Student") && User.IsInRole("Tutor"))
                 @Html.DisplayFor(modelItem => item.Location)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Student.Id)
+                @Html.DisplayFor(modelItem => item.Student.Email)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.AppointmentID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.AppointmentID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.AppointmentID })
+       
             </td>
         </tr>
     }

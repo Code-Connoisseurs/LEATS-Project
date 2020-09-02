@@ -11,7 +11,8 @@ namespace LEATS_Project.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Tutor
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -26,10 +27,14 @@ namespace LEATS_Project.Models
         public int StudentID { get; set; }
         public string Experience { get; set; }
         public string Qualification { get; set; }
+        [Display(Name = "Street Name")]
         public string StreetName { get; set; }
+        [Display(Name = "Rate Per Hour")]
         public string RatePerHour { get; set; }
         public string Status { get; set; }
+        [Display(Name = "Total Rating")]
         public int TotalRating { get; set; }
+        [Display(Name = "Sessions Completed")]
         public int NoOfSessions { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -11,7 +11,8 @@ namespace LEATS_Project.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Student
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -26,21 +27,29 @@ namespace LEATS_Project.Models
     
         public int StudentID { get; set; }
         public string Id { get; set; }
+        [Display(Name ="First Name")]
         public string FirstName { get; set; }
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
         public string Gender { get; set; }
         public string Ethnicity { get; set; }
+        [Display(Name = "Date of Birth")]
         public System.DateTime DateOfBirth { get; set; }
+        [Display(Name = "Cell No.")]
         public string CellphoneNo { get; set; }
         public string Email { get; set; }
+        [Display(Name = "Level of Study")]
         public string LevelOfStudy { get; set; }
         public string Campus { get; set; }
         public string College { get; set; }
+        [Display(Name = "Street Name")]
         public string StreetName { get; set; }
         public string Suburb { get; set; }
         public string City { get; set; }
         public string Province { get; set; }
+        [Display(Name = "Postal Code")]
         public int PostalCode { get; set; }
+        [Display(Name = "Profile Picture")]
         public byte[] ProfilePicture { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

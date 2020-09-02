@@ -11,13 +11,17 @@ namespace LEATS_Project.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class ModuleRequest
     {
         public int RequestID { get; set; }
         public int StudentID { get; set; }
+        [Display(Name = "Module Code")]
         public string ModuleCode { get; set; }
+        [Display(Name = "Module Name")]
         public string ModuleName { get; set; }
+        [Display(Name = "Request Date")]
         public System.DateTime RequestDate { get; set; }
     
         public virtual Student Student { get; set; }

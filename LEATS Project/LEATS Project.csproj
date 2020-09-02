@@ -380,11 +380,11 @@
     <Content Include="Views\Modules\Details.cshtml" />
     <Content Include="Views\Modules\Edit.cshtml" />
     <Content Include="Views\Modules\Index.cshtml" />
-    <Content Include="Views\ModuleRequests\Create.cshtml" />
-    <Content Include="Views\ModuleRequests\Delete.cshtml" />
-    <Content Include="Views\ModuleRequests\Details.cshtml" />
-    <Content Include="Views\ModuleRequests\Edit.cshtml" />
-    <Content Include="Views\ModuleRequests\Index.cshtml" />
+    <Content Include="Views\Modules\ModuleRequests\Create.cshtml" />
+    <Content Include="Views\Modules\ModuleRequests\Delete.cshtml" />
+    <Content Include="Views\Modules\ModuleRequests\Details.cshtml" />
+    <Content Include="Views\Modules\ModuleRequests\Edit.cshtml" />
+    <Content Include="Views\Modules\ModuleRequests\Index.cshtml" />
     <Content Include="Views\Payments\Create.cshtml" />
     <Content Include="Views\Payments\Delete.cshtml" />
     <Content Include="Views\Payments\Details.cshtml" />

@@ -20,20 +20,25 @@ namespace LEATS_Project.Models
         [Required]
         public string Id { get; set; }
         [Required]
+        [Display(Name ="First Name")]
         public string FirstName { get; set; }
         [Required]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
         [Required]
         public string Gender { get; set; }
         [Required]
         public string Ethnicity { get; set; }
         [Required]
+        [Display(Name = "Date of Birth")]
         public System.DateTime DateOfBirth { get; set; }
         [Required]
+        [Display(Name = "Cell No.")]
         public string CellphoneNo { get; set; }
         [Required]
         public string Email { get; set; }
         [Required]
+        [Display(Name = "Street Name")]
         public string StreetName { get; set; }
         [Required]
         public string Suburb { get; set; }
@@ -42,8 +47,10 @@ namespace LEATS_Project.Models
         [Required]
         public string Province { get; set; }
         [Required]
+        [Display(Name = "Postal Code")]
         public int PostalCode { get; set; }
         [Required]
+        [Display(Name = "Profile Picture")]
         public byte[] ProfilePicture { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }

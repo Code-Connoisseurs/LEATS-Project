@@ -5,7 +5,7 @@
 }
 <br />
 <br />
-<h2>Appoints Details</h2>
+<h2>Appointment Details</h2>
 
 <div>
     <hr />
@@ -73,9 +73,17 @@
             @Html.DisplayFor(model => model.Location)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Tutor.Student.FirstName)
-            @Html.DisplayNameFor(model => model.Tutor.Student.LastName)
+            Tutor @Html.DisplayNameFor(model => model.Tutor.Student.FirstName)
         </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tutor.Student.FirstName)
+        </dd>
+        <dt>
+           Tutor @Html.DisplayNameFor(model => model.Tutor.Student.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tutor.Student.LastName)
+        </dd>
     </dl>
 </div>
 <p>

@@ -19,12 +19,18 @@ namespace LEATS_Project.Models
         [Required]
         public int StudentID { get; set; }
         [Required]
+        [Display(Name = "Module Code")]
         public string ModuleCode { get; set; }
         [Required]
+        [Display(Name = "Module Name")]
         public string ModuleName { get; set; }
+        [Display(Name = "Academic Transcript")]
         public byte[] AcademicTranscript { get; set; }
+        [Display(Name = "Proof Of Registration")]
         public byte[] ProofOfRegistration { get; set; }
+        [Display(Name = "Application Date")]
         public System.DateTime ApplicationDate { get; set; }
+        [Display(Name = "Status")]
         public string ApplicationStatus { get; set; }
         public virtual Student Student { get; set; }
     }

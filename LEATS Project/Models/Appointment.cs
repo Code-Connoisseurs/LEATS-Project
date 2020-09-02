@@ -25,15 +25,22 @@ namespace LEATS_Project.Models
         public int AppointmentID { get; set; }
         public int StudentD { get; set; }
         public int TutorID { get; set; }
+        [Display(Name = "Booking Date")]
         public System.DateTime RequestTime { get; set; }
+        [Display(Name = "Slot")]
         public string AppointmentTime { get; set; }
+        [Display(Name = "Duration")]
         public int AppointmentDuration { get; set; }
+        [Display(Name = "Type")]
         public string AppointmentType { get; set; }
+        [Display(Name = "Status")]
         public string AppointmentStatus { get; set; }
+        [Display(Name = "Details")]
         public string AppointmentDetails { get; set; }
         public string Location { get; set; }
         //[Required]
         //[DisplayFormat(DataFormatString ="{0:d}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Appointment Date")]
         public System.DateTime AppointmentDate { get; set; }
     
         public virtual Student Student { get; set; }

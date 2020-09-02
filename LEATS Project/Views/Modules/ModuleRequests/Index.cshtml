@@ -21,7 +21,7 @@
             @Html.DisplayNameFor(model => model.RequestDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Student.Id)
+            @Html.DisplayNameFor(model => model.Student.Email)
         </th>
         <th></th>
     </tr>
@@ -38,7 +38,7 @@
             @Html.DisplayFor(modelItem => item.RequestDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Student.Id)
+            @Html.DisplayFor(modelItem => item.Student.Email)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.RequestID }) |

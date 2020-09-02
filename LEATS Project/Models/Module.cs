@@ -11,7 +11,8 @@ namespace LEATS_Project.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Module
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,6 +22,7 @@ namespace LEATS_Project.Models
         }
     
         public int ModuleID { get; set; }
+        [Display(Name = "Module Code")]
         public string ModuleCode { get; set; }
         public string Description { get; set; }
     

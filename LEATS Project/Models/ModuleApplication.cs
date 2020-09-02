@@ -11,12 +11,15 @@ namespace LEATS_Project.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class ModuleApplication
     {
         public int ModuleApplicationID { get; set; }
         public int TutorID { get; set; }
+        [Display(Name = "Module Code")]
         public string ModuleCode { get; set; }
+        [Display(Name = "Module Name")]
         public string ModuleName { get; set; }
         public System.DateTime Date { get; set; }
         public string Status { get; set; }
