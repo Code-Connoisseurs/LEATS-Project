@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Appointment Booking</h2>
+<h2>Appointment Bookings</h2>
 
 
 <table class="table">
@@ -66,9 +66,8 @@
                 @Html.DisplayFor(modelItem => item.Student.Email)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.AppointmentID }) |
+                @Html.ActionLink("Edit/Reschedule", "Edit", new { id = item.AppointmentID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.AppointmentID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.AppointmentID })
             </td>
         </tr>
     }

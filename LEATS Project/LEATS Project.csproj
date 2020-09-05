@@ -190,6 +190,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="InputValidations\DOBValidation.cs" />
+    <Compile Include="InputValidations\DateValidation.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Administrator.cs">
       <DependentUpon>LeatsDataModel.tt</DependentUpon>

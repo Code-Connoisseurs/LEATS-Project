@@ -9,9 +9,11 @@
 
 namespace LEATS_Project.Models
 {
+    using InputValidations;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+
 
     public partial class Appointment
     {
@@ -28,12 +30,13 @@ namespace LEATS_Project.Models
         [Display(Name = "Booking Date")]
         public System.DateTime RequestTime { get; set; }
         [Display(Name = "Slot")]
+        [Required]
         public string AppointmentTime { get; set; }
         [Display(Name = "Duration")]
         public int AppointmentDuration { get; set; }
         [Display(Name = "Type")]
+        [Required]
         public string AppointmentType { get; set; }
-        [Display(Name = "Status")]
         public string AppointmentStatus { get; set; }
         [Display(Name = "Details")]
         public string AppointmentDetails { get; set; }
@@ -41,6 +44,8 @@ namespace LEATS_Project.Models
         //[Required]
         //[DisplayFormat(DataFormatString ="{0:d}", ApplyFormatInEditMode = true)]
         [Display(Name = "Appointment Date")]
+        [DateValidation]
+        [Required]
         public System.DateTime AppointmentDate { get; set; }
     
         public virtual Student Student { get; set; }
