@@ -25,7 +25,7 @@ namespace LEATS_Project.Models
             this.TutorApplications = new HashSet<TutorApplication>();
             this.Appointments1 = new HashSet<Appointment>();
         }
-    
+        [Display(Name = "Student ID")]
         public int StudentID { get; set; }
         public string Id { get; set; }
         [Display(Name ="First Name")]

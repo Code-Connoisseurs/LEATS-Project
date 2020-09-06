@@ -54,7 +54,7 @@ namespace LEATS_Project.Controllers
                                where appoint.TutorID == 1
                                select appoint.AppointmentTime;
 
-            var datee = 0;
+           // var datee = 0;
             bool slot = false;
             foreach(string i in appointSlots)
             {

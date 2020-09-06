@@ -22,7 +22,7 @@
             @Html.DisplayNameFor(model => model.ApplicationStatus)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Student.Id)
+            @Html.DisplayNameFor(model => model.Student.StudentID)
         </th>
         <th></th>
     </tr>
@@ -43,7 +43,7 @@
             @Html.DisplayFor(modelItem => item.ApplicationStatus)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Student.Id)
+            @Html.DisplayFor(modelItem => item.Student.StudentID)
         </td>
         <td>
             @Html.ActionLink("View application details", "Details", new { id=item.ApplicationID })

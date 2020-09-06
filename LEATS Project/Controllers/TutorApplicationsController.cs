@@ -66,8 +66,41 @@ namespace LEATS_Project.Controllers
             {
                 tutorApplication.ApplicationStatus = "Approved";
                 UserManager.AddToRole(tutorApplication.Student.Id, "Tutor");
+                
+                Tutor newTutor = new Tutor();
+                newTutor.StudentID = tutorApplication.Student.StudentID;
+                newTutor.Experience = "None";
+                newTutor.Qualification = tutorApplication.Student.LevelOfStudy;
+                newTutor.StreetName = tutorApplication.Student.StreetName;
+                newTutor.RatePerHour = "100";
+                newTutor.Status = "Approved";
+                newTutor.TotalRating = 0;
+                newTutor.NoOfSessions = 0;
+                db.Tutors.Add(newTutor);
+                db.SaveChanges();
+                Specialisation newSpec = new Specialisation();
+                var newTutorId = from tutor in db.Tutors
+                                   where tutor.StudentID == tutorApplication.StudentID
+                                 select tutor.TutorID;
+                int currentTutorId = 0;
+                foreach(int i in newTutorId)
+                {
+                    currentTutorId = i;
+                };
+                newSpec.TutorID =currentTutorId;
+                var newModule = from module in db.Modules
+                                where module.ModuleCode == tutorApplication.ModuleCode
+                                select module.ModuleID;
+                int CurrentModuleID = 0;
+                foreach(int i in newModule)
+                {
+                    CurrentModuleID = i;
+                }
+                newSpec.ModuleID = CurrentModuleID;
+                db.Specialisations.Add(newSpec);
                 db.SaveChanges();
             }
+
 
         }
 
@@ -119,6 +152,7 @@ namespace LEATS_Project.Controllers
 
                 }
                 db.TutorApplications.Add(tutorApplication);
+                tutorApplication.ApplicationDate = DateTime.Today;
                 db.SaveChanges();
                 return RedirectToAction("Index", "Home");
             }
